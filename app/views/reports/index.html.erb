@@ -2,7 +2,7 @@
 
 <ul>
   <% @reports.each do |report| %>
-    <li><%= link_to report.name, report_path(report) %></li>
+    <li><%= link_to report.title, report_path(report) %></li>
   <% end %>
 </ul>
 

@@ -13,9 +13,14 @@ class ReportsController < ApplicationController
   end
 
   def create
-    @report = Report.new(restaurant_params)
-    @report.save
-    redirect_to report_path(@report)
+    @report = Report.new(report_params)
+    @report.user = current_user
+    # raise
+    if @report.save
+      redirect_to reports_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -35,6 +40,6 @@ class ReportsController < ApplicationController
   end
 
   def report_params
-    params.require(:report).permit(:title, :description, :location, :category, :status)
+    params.require(:report).permit(:title, :description, :location, :category, :status, :votes, photos: [])
   end
 end
