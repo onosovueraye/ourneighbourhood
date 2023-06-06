@@ -1,0 +1,9 @@
+<%= simple_form_for [@report] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :location %>
+  <%= f.input :category %>
+  <%= f.input :status %>
+  <%= f.input :votes %>
+  <%= f.submit "Submit report" %>
+<% end %>
