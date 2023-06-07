@@ -1,10 +1,15 @@
 .card-report {
   overflow: hidden;
   height: 120px;
+  border-radius: 8px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  color: #2B272C;
+  a {
+    text-decoration: none;
+  }
 }
 
 .card-report img {
@@ -29,7 +34,5 @@
 
 .card-report .card-report-infos {
   padding: 16px;
-  a {
-    text-decoration: none;
-  }
+  text-decoration: none;
 }
