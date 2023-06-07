@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :reports do
     resources :tickets, only: [:create]
-    resources :comments, only: [:create]
+    resources :comments, only: [:new, :create]
     resources :follows, only: [:create]
   end
 

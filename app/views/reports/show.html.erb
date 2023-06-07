@@ -13,7 +13,11 @@
   <%= f.submit "Claim report" %>
 <% end %>
 
-<%# link_to "claim ticket", report_tickets_path %> |
+<% @report.comments.each do |comment| %>
+<p><%= comment.description %></p>
+<% end %>
+
+<%= link_to "Leave a comment", new_report_comment_path(@report) %> |
 <%= link_to "Back", reports_path %> |
 <%= link_to "Edit", edit_report_path(@report) %> |
 <%= link_to "Delete",
