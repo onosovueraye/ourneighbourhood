@@ -15,6 +15,7 @@ class ReportsController < ApplicationController
   def create
     @report = Report.new(report_params)
     @report.user = current_user
+    @ticket = Ticket.new
     # raise
     if @report.save
       redirect_to reports_path
