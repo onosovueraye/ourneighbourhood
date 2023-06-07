@@ -10,10 +10,10 @@ class NotesController < ApplicationController
       redirect_to reports_path
     else
       render :new, status: :unprocessable_entity
+    end
   end
 
   def note_params
     params.require(:report).permit(:ticket_id, :description)
   end
-
 end
