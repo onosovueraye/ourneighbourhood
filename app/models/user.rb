@@ -8,4 +8,7 @@ class User < ApplicationRecord
   has_many :follows
   has_many :comments
   has_many :tickets
+  validates :name, presence: true
+  validates :address, presence: true
+  validates :neighbourhood, presence: true
 end
