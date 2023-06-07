@@ -8,7 +8,12 @@
   <%# photo.key %>
   <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
-<%= link_to "claim ticket", report_tickets_path %> |
+
+<%= simple_form_for [@report, @ticket] do |f| %>
+  <%= f.submit "Claim report" %>
+<% end %>
+
+<%# link_to "claim ticket", report_tickets_path %> |
 <%= link_to "Back", reports_path %> |
 <%= link_to "Edit", edit_report_path(@report) %> |
 <%= link_to "Delete",
