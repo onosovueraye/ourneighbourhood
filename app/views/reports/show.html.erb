@@ -5,7 +5,6 @@
 <p><%= @report.category %></p>
 <p><%= @report.status %></p>
 <% @report.photos.each do |photo| %>
-  <%# photo.key %>
   <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
 
@@ -17,7 +16,11 @@
 <p><%= comment.description %></p>
 <% end %>
 
-<%= link_to "Leave a comment", new_report_comment_path(@report) %> |
+<%= simple_form_for [@report, @comment] do |f| %>
+  <%= f.input :description %>
+  <%= f.submit "Submit comment" %>
+<% end %>
+
 <%= link_to "Back", reports_path %> |
 <%= link_to "Edit", edit_report_path(@report) %> |
 <%= link_to "Delete",
