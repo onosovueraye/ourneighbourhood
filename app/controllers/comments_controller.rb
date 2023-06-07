@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
       redirect_to report_comments_path
     else
       render :new, status: :unprocessable_entity
+    end
   end
 
   def comment_params

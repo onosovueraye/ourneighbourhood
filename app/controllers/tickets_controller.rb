@@ -9,11 +9,14 @@ class TicketsController < ApplicationController
   end
 
   def create
-    @ticket = ticket.new(ticket_params)
+    @ticket = Ticket.new()
+    @ticket.user = current_user
+    @ticket.report = Report.find(params[:report_id])
     if @ticket.save
-      redirect_to report_ticket_path
+      redirect_to ticket_path(@ticket)
     else
       render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -26,7 +29,7 @@ class TicketsController < ApplicationController
     redirect_to ticket_path(@ticket)
   end
 
-  def ticket_params
-    params.require(:report).permit(:user_id, :report_id, :status)
-  end
+  # def ticket_params
+  #   params.require(:report).permit(:report_id)
+  # end
 end

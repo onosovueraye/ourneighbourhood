@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :reports do
-    resources :tickets, only: [:show, :create]
+    resources :tickets, only: [:create]
     resources :comments, only: [:create]
     resources :follows, only: [:create]
   end
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   # get "myreports", to: "users#reports"
   # get "mytickets", to: "users#tickets"
 
-  resources :tickets, only: [:update] do
+  resources :tickets, only: [:show, :update] do
     resources :notes, only: [:new, :create]
   end
 end

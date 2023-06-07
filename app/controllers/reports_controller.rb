@@ -6,6 +6,7 @@ class ReportsController < ApplicationController
 
   def show
     @report = Report.find(params[:id])
+    @ticket = Ticket.new
   end
 
   def new
@@ -15,7 +16,6 @@ class ReportsController < ApplicationController
   def create
     @report = Report.new(report_params)
     @report.user = current_user
-    @ticket = Ticket.new
     # raise
     if @report.save
       redirect_to reports_path
