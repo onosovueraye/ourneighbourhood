@@ -1,9 +1,36 @@
-<h1>All reports</h1>
+<div class="container">
+  <h1>All reports</h1>
+  <%= link_to "New report", new_report_path, class: 'btn btn-primary rounded-pill' %>
 
-<ul>
+  <div class="d-flex justify-content-center">
+    <div class="flex-column align-items-center">
+      <% @reports.each do |report| %>
+        <div class="card mb-5" style="width: 22rem;">
+          <% report.photos.each do |photo| %>
+            <%# photo.key %>
+            <%= cl_image_tag photo.key, class: 'card-img-top', crop: :fill %>
+          <% end %>
+          <div class="card-body">
+            <%= link_to report.title, report_path(report) %>
+            <p class="card-text"><%= report.description %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
   <% @reports.each do |report| %>
-    <li><%= link_to report.title, report_path(report) %></li>
+    <%= link_to report_path(report) do %>
+      <div class="card-report mb-3">
+        <% report.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, class: 'img' %>
+        <% end %>
+        <div class="card-report-infos">
+          <h2><%= report.title %></h2>
+          <p><%= report.description %></p>
+        </div>
+      </div>
+    <% end %>
   <% end %>
-</ul>
 
-<%= link_to "New report", new_report_path  %>
+</div>
