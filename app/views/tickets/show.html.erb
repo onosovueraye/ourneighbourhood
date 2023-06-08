@@ -1,4 +1,15 @@
 <h2><%= @ticket.status %></h2>
 
+<% @ticket.notes.each do |note| %>
+<p><%= note.description %></p>
+<% end %>
+
+<%= simple_form_for [@ticket, @note] do |f| %>
+  <%= f.input :description %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.submit "Submit note" %>
+<% end %>
+
+
 
 <%= link_to "Back", report_path(@ticket.report) %> |

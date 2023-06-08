@@ -1,4 +1,4 @@
-<%= simple_form_for [@note] do |f| %>
+<%= simple_form_for [@ticket, @note] do |f| %>
   <%= f.input :description %>
   <%= f.submit "Submit note" %>
 <% end %>
