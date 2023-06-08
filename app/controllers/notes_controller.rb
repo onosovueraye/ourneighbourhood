@@ -9,15 +9,14 @@ class NotesController < ApplicationController
     @note = Note.new(note_params)
     @ticket = Ticket.find(params[:ticket_id])
     @note.ticket = @ticket
-    @note.user = current_user
     if @note.save
-      redirect_to reports_path
+      redirect_to ticket_path(@ticket)
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def note_params
-    params.require(:report).permit(:ticket_id, :description)
+    params.require(:note).permit(:description, photos: [])
   end
 end
