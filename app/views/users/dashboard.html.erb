@@ -1,15 +1,18 @@
+
+<h3>My Tickets</h3>
 <% @tickets.each do |ticket| %>
-<h2>Ticket Status: <%= link_to ticket.status, ticket_path(ticket) %></h2>
+<h4>Ticket Status: <%= link_to ticket.status, ticket_path(ticket) %></h4>
 
-<p> <%= ticket.report.title  %></p>
-<% ticket.report.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
+<p> <%= link_to ticket.report.title, report_path(ticket.report)  %></p>
+  <% ticket.report.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
 <% end %>
 
+<h3>Reports you follow</h3>
 <% current_user.follows.each do |follow| %>
-<%= follow.report.title  %>
-<% follow.report.photos.each do |photo| %>
-<%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
+  <%= follow.report.title  %>
+    <% follow.report.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
 <% end %>
