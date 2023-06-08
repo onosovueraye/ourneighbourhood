@@ -1,31 +1,55 @@
-<h2><%= @report.title %></h2>
+<div>
+  <% @report.photos.each do |photo| %>
+    <%# photo.key %>
+    <%= cl_image_tag photo.key, class: "rs-img-size", crop: :fill %>
+  <% end %>
+</div>
 
-<p><%= @report.description %></p>
-<p><%= @report.location %></p>
-<p><%= @report.category %></p>
-<p><%= @report.status %></p>
-<% @report.photos.each do |photo| %>
-  <%# photo.key %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
+<div class="container mt-3">
+  <div class="rs-votes row">
+    <div class="col-6 d-flex justify-content-start mb-2">
+      <%= simple_form_for [@report, @ticket] do |f| %>
+        <%= f.submit "Follow this report", class: "btn btn-outline-primary rounded-pill btn-sm px-3 " %>
+      <% end %>
+    </div>
+    <div class="col-6">
+      <p class="rs-text-right"><%= @report.votes %> Followers</p>
+    </div>
+  </div>
+  <h2 class="mt-2"><%= @report.title %></h2>
+  <p>Description: <br><%= @report.description %></p>
+  <div>
+    <p><strong>Location: </strong><%= @report.location %></p>
+    <p><strong>Report Type: </strong><%= @report.category %></p>
+    <div class="row">
+      <div class="col-6">
+        <p><strong>Status: </strong><%= @report.status %></p>
+      </div>
+      <div class="col-6 d-flex justify-content-end">
+        <%= simple_form_for [@report, @ticket] do |f| %>
+          <%= f.submit "Claim report", class: "btn btn-primary rounded-pill btn-sm px-3 " %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-<%= simple_form_for [@report, @ticket] do |f| %>
-  <%= f.submit "Claim report" %>
-<% end %>
+  <% if @report.comments.count != 0 %>
+    <br>
+    <h4>Comments:</h1>
+    <% @report.comments.each do |comment| %>
+      <div class="rs-comment-box">
+        <p><strong>User: <%= comment.user.name %></strong><br><%= comment.description %><br><%= comment.created_at.to_formatted_s(:short) %></p>
+      </div>
+    <% end %>
+  <% end %>
 
-<% @report.comments.each do |comment| %>
-<p><%= comment.description %></p>
-<% end %>
-
-<%= simple_form_for [@report, @comment] do |f| %>
-  <%= f.input :description %>
-  <%= f.submit "Submit comment" %>
-<% end %>
+  <%= simple_form_for [@report, @comment] do |f| %>
+    <%= f.input :description %>
+    <%= f.submit "Submit comment", class: "btn btn-outline-primary rounded-pill btn-sm px-3 mb-3" %>
+  <% end %>
 
 
-<%= link_to "Back", reports_path %> |
-<%= link_to "Edit", edit_report_path(@report) %> |
-<%= link_to "Delete",
-  report_path(@report),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-%>
+  <%= link_to "Back", reports_path, class: "btn btn-outline-secondary rounded-pill btn-sm px-3" %>
+  <%= link_to "Edit", edit_report_path(@report), class: "btn btn-outline-secondary rounded-pill btn-sm px-3" %>
+
+</div>
