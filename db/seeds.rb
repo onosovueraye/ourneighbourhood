@@ -7,6 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 puts 'clearing users and reports databases'
 
+Note.destroy_all
+Ticket.destroy_all
+Comment.destroy_all
 Report.destroy_all
 User.destroy_all
 
