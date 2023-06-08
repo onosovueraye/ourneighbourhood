@@ -1,10 +1,20 @@
-<%= simple_form_for [@report], data: {controller: 'geolocation'} do |f| %>
-  <%= f.input :title%>
-  <%= f.input :description %>
-  <%= f.input :location %>
-  <%= f.hidden_field :latitude, data: { geolocation_target: "latitude" } %>
-  <%= f.hidden_field :longitude, data: { geolocation_target: "longitude" } %>
-  <%= f.input :category, collection: ["Improvement", "Repair"], default:["Improvement"] %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit "Submit report" %>
-<% end %>
+
+<div class="container-contact100">
+  <div class="wrap-contact100">
+
+    <span class="contact100-form-title">Make a report </span>
+      <div class="form-container">
+        <%= simple_form_for [@report], data: {controller: 'geolocation'} do |f| %>
+        <%= f.input :title%>
+        <%= f.input :description %>
+        <%= f.input :location %>
+        <%= f.hidden_field :latitude, data: { geolocation_target: "latitude" } %>
+        <%= f.hidden_field :longitude, data: { geolocation_target: "longitude" } %>
+        <%= f.input :category, collection: ["Improvement", "Repair"], default:["Improvement"] %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.submit "Submit report" %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

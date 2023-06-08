@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "/", class: "navbar-brand" do %>
+    <%= link_to "/reports", class: "navbar-brand" do %>
       <h1 class="neighbourhood-logo">OurNeighbourhood</h1>
     <% end %>
 
@@ -21,10 +21,10 @@
             <%= link_to "Profile - #{current_user.name}", "#", class: "dropdown-item" %>
           </li>
           <li class="nav-item active">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
+            <%= link_to "My Reports", "#", class: "dropdown-item" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
+            <%= link_to "My Tickets", "#", class: "dropdown-item" %>
           </li>
           <li class="nav-item dropdown">
             <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>

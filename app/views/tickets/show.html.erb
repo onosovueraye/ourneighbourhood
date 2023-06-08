@@ -14,7 +14,7 @@
 <% end %>
 
 <%= simple_form_for [@ticket, @note] do |f| %>
-  <%= f.input :description %>
+  <%= f.input :description, label: "Leave a note" %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.submit "Submit note" %>
 <% end %>

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :follows, only: [:create]
   end
 
+  resources :follows, only: [:destroy]
   get "dashboard", to: "users#dashboard"
   # get "myreports", to: "users#reports"
   # get "mytickets", to: "users#tickets"
