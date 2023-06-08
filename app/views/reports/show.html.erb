@@ -12,6 +12,14 @@
   <%= f.submit "Claim report" %>
 <% end %>
 
+<% if @follow %>
+<%= link_to "unfollow report", follow_path(@follow), data: {turbo_method: :delete} %>
+<% else %>
+<%= simple_form_for [@report, Follow.new] do |f| %>
+  <%= f.submit "Follow report" %>
+<% end %>
+<% end %>
+
 <% @report.comments.each do |comment| %>
 <p><%= comment.description %></p>
 <% end %>
