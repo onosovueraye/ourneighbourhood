@@ -18,7 +18,7 @@
       <% end %>
     </div>
     <div class="col-6">
-      <p class="rs-text-right"><%= @report.votes %> Followers</p>
+      <p class="rs-text-right"><%= @report.follows.count %> Followers</p>
     </div>
   </div>
   <h2 class="mt-2"><%= @report.title %></h2>
@@ -53,7 +53,7 @@
 
 
   <%= simple_form_for [@report, @comment] do |f| %>
-    <%= f.input :description %>
+    <%= f.input :description, label: "Leave a comment" %>
     <%= f.submit "Submit comment", class: "btn btn-outline-primary rounded-pill btn-sm px-3 mb-3" %>
   <% end %>
 
