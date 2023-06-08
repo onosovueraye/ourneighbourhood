@@ -37,6 +37,7 @@ class ReportsController < ApplicationController
 
   def destroy
     @report = Report.find(params[:id])
+    @report.tickets.destroy_all
     @report.destroy
     redirect_to reports_path, status: :see_other
   end
