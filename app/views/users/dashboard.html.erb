@@ -1,18 +1,38 @@
+<div class="dash-info row">
+  <div class="col-auto">
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-large", alt: "avatar image" %>
+  </div>
+  <div class="col" id="dash-details">
+    <h1><%= current_user.name %></h1>
+    <div class="d-flex align-items-center">
+      <i class="fa-sharp fa-solid fa-location-arrow" style="color: #000000;"></i>
+      <h2 class="ms-2"><%= current_user.neighbourhood %></h2>
+    </div>
+  </div>
+</div>
+<br>
 
-<h3>My Tickets</h3>
-<% @tickets.each do |ticket| %>
-<h4>Ticket Status: <%= link_to ticket.status, ticket_path(ticket) %></h4>
+<div class="container">
 
-<p> <%= link_to ticket.report.title, report_path(ticket.report)  %></p>
+  <h1>My Tickets</h1>
+
+  <% @tickets.each do |ticket| %>
+  <h2>Ticket Status: <%= link_to ticket.status, ticket_path(ticket) %></h2>
+
+  <p> <%= ticket.report.title  %></p>
   <% ticket.report.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <%= cl_image_tag photo.key, height: 90, width: 120, crop: :fill %>
   <% end %>
-<% end %>
+  <% end %>
 
-<h3>Reports you follow</h3>
-<% current_user.follows.each do |follow| %>
+  <% current_user.follows.each do |follow| %>
   <%= follow.report.title  %>
-    <% follow.report.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-    <% end %>
-<% end %>
+  <% follow.report.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 90, width: 120, crop: :fill %>
+  <% end %>
+  <% end %>
+
+
+
+
+</div>

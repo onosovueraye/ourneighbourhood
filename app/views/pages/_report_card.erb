@@ -8,6 +8,10 @@
           <div class="card-report-infos">
             <h2><%= report.title %></h2>
             <p><%= report.description %></p>
+            <div class="d-flex col-auto">
+              <p class="justify-content-begin col"><strong><%= report.status %></strong></p>
+              <p class="justify-content-end col"><strong>Votes: <%= report.votes %></strong></p>
+            </div>
           </div>
         </div>
       <% end %>
