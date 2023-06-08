@@ -7,6 +7,7 @@
   display: flex;
   align-items: center;
   color: #2B272C;
+  height: 150px;
 
 }
 .no-underline {
@@ -17,7 +18,7 @@
 }
 
 .card-report img {
-  height: 120px;
+  height: 100%;
   width: 120px;
   object-fit: cover;
   flex: none;
