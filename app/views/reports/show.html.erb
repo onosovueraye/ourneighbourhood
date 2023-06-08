@@ -31,9 +31,11 @@
         <p><strong>Status: </strong><%= @report.status %></p>
       </div>
       <div class="col-6 d-flex justify-content-end">
+      <% if !@report.tickets.map(&:user).include?(current_user) %>
         <%= simple_form_for [@report, @ticket] do |f| %>
           <%= f.submit "Claim report", class: "btn btn-primary rounded-pill btn-sm px-3 " %>
         <% end %>
+      <% end %>
       </div>
     </div>
   </div>
