@@ -5,6 +5,7 @@
   <% end %>
 </div>
 
+
 <div class="container mt-3">
   <div class="rs-votes row">
     <div class="col-6 d-flex justify-content-start mb-2">
@@ -33,6 +34,7 @@
     </div>
   </div>
 
+
   <% if @report.comments.count != 0 %>
     <br>
     <h4>Comments:</h1>
@@ -43,10 +45,29 @@
     <% end %>
   <% end %>
 
+
   <%= simple_form_for [@report, @comment] do |f| %>
     <%= f.input :description %>
     <%= f.submit "Submit comment", class: "btn btn-outline-primary rounded-pill btn-sm px-3 mb-3" %>
   <% end %>
+
+
+
+
+<% if @follow %>
+<%= link_to "unfollow report", follow_path(@follow), data: {turbo_method: :delete} %>
+<% else %>
+<%= simple_form_for [@report, Follow.new] do |f| %>
+  <%= f.submit "Follow report" %>
+<% end %>
+<% end %>
+
+<% @report.comments.each do |comment| %>
+<p><%= comment.description %></p>
+<% end %>
+
+
+
 
 
   <%= link_to "Back", reports_path, class: "btn btn-outline-secondary rounded-pill btn-sm px-3" %>

@@ -30,6 +30,12 @@ class TicketsController < ApplicationController
     redirect_to ticket_path(@ticket)
   end
 
+  def destroy
+    @ticket = Ticket.find(params[:id])
+    @ticket.destroy
+    redirect_to dashboard_path
+  end
+
   # def ticket_params
   #   params.require(:report).permit(:report_id)
   # end

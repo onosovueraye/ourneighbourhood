@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     # @comment = @report.comments.new(comment_params)
     if @comment.save
-      redirect_to reports_path
+      redirect_to report_path(@report)
     else
       render :new, status: :unprocessable_entity
     end

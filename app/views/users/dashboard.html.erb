@@ -1,0 +1,15 @@
+<% @tickets.each do |ticket| %>
+<h2>Ticket Status: <%= link_to ticket.status, ticket_path(ticket) %></h2>
+
+<p> <%= ticket.report.title  %></p>
+<% ticket.report.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+<% end %>
+
+<% current_user.follows.each do |follow| %>
+<%= follow.report.title  %>
+<% follow.report.photos.each do |photo| %>
+<%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+<% end %>

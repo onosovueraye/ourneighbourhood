@@ -8,6 +8,8 @@ class ReportsController < ApplicationController
     @report = Report.find(params[:id])
     @ticket = Ticket.new
     @comment = Comment.new
+    @follow = Follow.where(user: current_user, report: @report).first
+
   end
 
   def new
