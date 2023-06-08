@@ -9,7 +9,12 @@ class ReportsController < ApplicationController
     @ticket = Ticket.new
     @comment = Comment.new
     @follow = Follow.where(user: current_user, report: @report).first
-
+    @markers = [
+      {
+        lat: @report.latitude,
+        lng: @report.longitude
+      }
+    ]
   end
 
   def new
