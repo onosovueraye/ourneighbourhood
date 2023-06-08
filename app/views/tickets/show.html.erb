@@ -1,16 +1,16 @@
 <h2>Ticket Status: <%= @ticket.status %></h2>
 
 <p> <%= @ticket.report.title  %></p>
-<% @ticket.report.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% @ticket.report.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
 
 <h3>Notes</h3>
 <% @ticket.notes.each do |note| %>
-<p><%= note.description %></p>
-<% note.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
+  <p><%= note.description %></p>
+    <% note.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
 <% end %>
 
 <%= simple_form_for [@ticket, @note] do |f| %>

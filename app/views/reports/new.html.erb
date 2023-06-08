@@ -3,7 +3,6 @@
   <%= f.input :description %>
   <%= f.input :location %>
   <%= f.input :category, collection: ["Improvement", "Repair"], default:["Improvement"] %>
-  <%= f.input :status, collection: ["Unclaimed", "In Progress", "Done"], default:["Unclaimed"] %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.submit "Submit report" %>
 <% end %>

@@ -9,7 +9,6 @@ class Report < ApplicationRecord
   validates :location, presence: true
   validates :category, presence: true, inclusion: { in: ['Improvement', 'Repair'] }
   validates :votes, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  validates :status, presence: true, inclusion: { in: ['Unclaimed', 'In Progress', 'Done'] }
 
   attribute :votes, :integer, default: 0
 end
