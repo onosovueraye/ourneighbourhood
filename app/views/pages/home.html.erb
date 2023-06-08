@@ -1,9 +1,14 @@
 <div class="home-background-image">
   <div class="d-flex">
     <div class="justify-content-center">
-      <div class="d-flex flex-column align-items-center text-justify">
-      <%= image_tag "neighbourhood_logo.png", class: "mb-5", width: "300px" %>
-      <%= link_to "make a report", new_report_path , class: "btn btn-lg btn-primary rounded-pill mb-5" %>
+      <% if user_signed_in? %>
+        <%= link_to "#{current_user.name}", reports_path , class: "btn btn-md mt-1 ms-1 rounded-pill", style: "color: white; border-color: white;" %>
+      <% else  %>
+        <%= link_to "Login", new_user_session_path , class: "btn btn-md mt-1 ms-1 rounded-pill", style: "color: white; border-color: white;" %>
+      <% end %>
+        <div class="d-flex flex-column align-items-center text-justify">
+        <%= link_to(image_tag( "neighbourhood_logo.png", class: "mb-5 mt-5", width: "300px" ),  reports_path ) %>
+        <%= link_to "make a report", new_report_path , class: "btn btn-lg btn-primary rounded-pill mb-5" %>
       <h1 class= "text-center text-light mb-5">Suggest improvements and needed repairs in your area</h1>
     </div>
       <div>
