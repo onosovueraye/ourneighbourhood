@@ -2,6 +2,7 @@ class TicketsController < ApplicationController
 
   def show
     @ticket = Ticket.find(params[:id])
+    @note = Note.new
   end
 
   def new
