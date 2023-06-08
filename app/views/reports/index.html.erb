@@ -1,9 +1,19 @@
-<h1>All reports</h1>
+<div class="container">
+  <h1>All reports</h1>
+  <%= link_to "New report", new_report_path, class: 'btn btn-primary rounded-pill' %>
 
-<ul>
   <% @reports.each do |report| %>
-    <li><%= link_to report.title, report_path(report) %></li>
+    <%= link_to report_path(report) do %>
+      <div class="card-report mb-3">
+        <% report.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, class: 'img' %>
+        <% end %>
+        <div class="card-report-infos">
+          <h2><%= report.title %></h2>
+          <p><%= report.description %></p>
+        </div>
+      </div>
+    <% end %>
   <% end %>
-</ul>
 
-<%= link_to "New report", new_report_path  %>
+</div>
