@@ -50,7 +50,7 @@ report5.photos.attach(io: photo_report5, filename: 'broken_bench_park.jpg', cont
 report5.save!
 
 photo_report6 = URI.open('https://i2-prod.bristolpost.co.uk/news/bristol-news/article725591.ece/ALTERNATES/s615b/crossingJPG.jpg')
-report6 = Report.new(title: 'Faded Crosswalk Lines', description: 'The crosswalk lines at the junction of Pine and 1st are faded. Repainting is needed.', location: 'Amber Wharf, 3 Nursery Ln, London E2 8AU', category: 'Repair', votes: '12', status: 'Unclaimed', user_id: user1.id)
+report6 = Report.new(title: 'Faded Crosswalk Lines', description: 'The crosswalk lines at the junction of Pine and 1st are faded. Repainting is needed.', location: '10 Whiston Rd, London E2 8FX', category: 'Repair', votes: '12', status: 'Unclaimed', user_id: user1.id)
 report6.photos.attach(io: photo_report6, filename: 'faded_crosswalk.jpg', content_type: 'image/jpg')
 report6.save!
 
