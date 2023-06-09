@@ -7,6 +7,7 @@ export default class extends Controller {
   connect() {
     console.log('Hello from the geolocation controller')
 
+
     navigator.geolocation.getCurrentPosition((data) => {
 
       const latitude = data.coords.latitude
