@@ -8,6 +8,7 @@
 puts 'clearing users and reports databases'
 
 Note.destroy_all
+Follow.destroy_all
 Ticket.destroy_all
 Comment.destroy_all
 Report.destroy_all

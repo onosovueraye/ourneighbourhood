@@ -7,7 +7,7 @@
         <%= simple_form_for [@report], data: {controller: 'geolocation'} do |f| %>
         <%= f.input :title%>
         <%= f.input :description %>
-        <%= f.input :location %>
+        <%= f.hidden_field :location %>
         <%= f.hidden_field :latitude, data: { geolocation_target: "latitude" } %>
         <%= f.hidden_field :longitude, data: { geolocation_target: "longitude" } %>
         <%= f.input :category, collection: ["Improvement", "Repair"], default:["Improvement"] %>
