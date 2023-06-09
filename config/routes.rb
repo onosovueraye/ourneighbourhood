@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     resources :follows, only: [:create]
   end
 
+  get "close_ticket/:ticket_id", to: "tickets#close_ticket", as: :close_ticket
+
   resources :follows, only: [:destroy]
   get "dashboard", to: "users#dashboard"
   # get "myreports", to: "users#reports"

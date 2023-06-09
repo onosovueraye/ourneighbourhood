@@ -19,6 +19,6 @@
   <%= f.submit "Submit note" %>
 <% end %>
 
-
+<%= link_to "close_ticket", close_ticket_path(@ticket) %> |
 
 <%= link_to "Back", report_path(@ticket.report) %> |

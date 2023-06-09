@@ -9,6 +9,14 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new
   end
 
+  def close_ticket
+    @ticket = Ticket.find(params[:ticket_id])
+    @ticket.status = "Done"
+    if  @ticket.save!
+      redirect_to ticket_path(@ticket)
+    end
+  end
+
   def create
     @ticket = Ticket.new()
     @ticket.user = current_user

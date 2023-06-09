@@ -6,6 +6,9 @@
             <%= cl_image_tag photo.key, class: 'img' %>
           <% end %>
           <div class="card-report-infos">
+            <div>
+              <p id="submit-p"><strong>Submitted by: <%= report.user.name %></strong></p>
+            </div>
             <h2><%= report.title %></h2>
             <p><%= report.description %></p>
             <div class="d-flex col-auto">

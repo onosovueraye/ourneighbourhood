@@ -1,26 +1,22 @@
-<div class="home-background-image">
-  <div class="d-flex">
+<div>
+  <div>
     <div class="justify-content-center">
-      <% if user_signed_in? %>
-        <%= link_to "#{current_user.name}", reports_path , class: "btn btn-md mt-1 ms-1 rounded-pill", style: "color: white; border-color: white;" %>
-      <% else  %>
-        <%= link_to "Login", new_user_session_path , class: "btn btn-md mt-1 ms-1 rounded-pill", style: "color: white; border-color: white;" %>
-      <% end %>
-        <div class="d-flex flex-column align-items-center text-justify">
-        <%= link_to(image_tag( "neighbourhood_logo.png", class: "mb-5 mt-5", width: "300px" ),  reports_path ) %>
-        <%= link_to "make a report", new_report_path , class: "btn btn-lg btn-primary rounded-pill mb-5" %>
-      <h1 class= "text-center text-light mb-5">Suggest improvements and needed repairs in your area</h1>
-    </div>
       <div>
-      <p class="text-right mt-5 ms-3 mb-5">Make <br>
-        Meaningful <br>
-        Change</p>
-      <p class="text-left">nacscninasciu</p>
-
+        <% if user_signed_in? %>
+          <%= link_to "#{current_user.name}", reports_path , class: "btn btn-md mt-3 ms-3 mb-3 rounded-pill", style: "color: black; border-color: black;" %>
+        <% else  %>
+          <%= link_to "Login", new_user_session_path , class: "btn btn-md mt-3 ms-3 mb-3 rounded-pill", style: "color: black; border-color: black;" %>
+        <% end %>
       </div>
-
-
-
-
+        <div class="d-flex flex-column align-items-center text-justify">
+        <h1 class="mt-2">Your neighbourhood is</h1>
+        <%= link_to(image_tag( "neighbourhood_logo.png", class: "mb-5 mt-5", width: "200px" ),  reports_path ) %>
+      <h2 class= "text-center text-dark mb-5">Together we can make it <br>even better!</h2>
+      <h2 class= "text-center text-dark mb-5">Together we can find, fix <br>and improve upon what <br>we already love</h2>
+        <%= link_to "make a report", new_report_path , class: "btn btn-lg btn-primary rounded-pill mb-5" %>
+      <h3 class="text-center text-dark my-5">See something <br>that needs <br>fixing</h3>
+       <h3 class="text-center text-dark mb-5">Work <br>Together</h3>
+       <h3 class="text-center text-dark mb-5">Get <br>your area <br>on a New Path</h3>
+    </div>
   </div>
 </div>
