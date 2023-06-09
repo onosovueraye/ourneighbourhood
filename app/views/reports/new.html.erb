@@ -11,6 +11,7 @@
         <%= f.hidden_field :latitude, data: { geolocation_target: "latitude" } %>
         <%= f.hidden_field :longitude, data: { geolocation_target: "longitude" } %>
         <%= f.input :category, collection: ["Improvement", "Repair"], default:["Improvement"] %>
+        <%= f.hidden_field :status, collection: ["Unclaimed", "In Progress", "Done"], defualt: ["Unclaimed"]%>
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <%= f.submit "Submit report" %>
       <% end %>
