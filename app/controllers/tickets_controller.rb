@@ -44,7 +44,9 @@ class TicketsController < ApplicationController
     redirect_to dashboard_path
   end
 
-  # def ticket_params
-  #   params.require(:report).permit(:report_id)
-  # end
+  private
+
+  def ticket_params
+    params.require(:report).permit(:report_id)
+  end
 end
