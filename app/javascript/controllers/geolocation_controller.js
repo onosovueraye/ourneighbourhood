@@ -5,9 +5,10 @@ export default class extends Controller {
   static targets = ["latitude", "longitude"]
 
   connect() {
-    // console.log('Hello from the geolocation controller')
+    console.log('Hello from the geolocation controller')
 
     navigator.geolocation.getCurrentPosition((data) => {
+
       const latitude = data.coords.latitude
       const longitude = data.coords.longitude
 

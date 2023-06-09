@@ -1,18 +1,74 @@
+<div class="container">
+  <div class="dash-info row">
+    <div class="col-auto">
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-large", alt: "avatar image" %>
+    </div>
+    <div class="col" id="dash-details">
+      <h1><%= current_user.name %></h1>
+      <div class="d-flex align-items-center">
 
-<h3>My Tickets</h3>
-<% @tickets.each do |ticket| %>
-<h4>Ticket Status: <%= link_to ticket.status, ticket_path(ticket) %></h4>
-
-<p> <%= link_to ticket.report.title, report_path(ticket.report)  %></p>
-  <% ticket.report.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+        <h2 class=""><i class="fa-sharp fa-solid fa-location-arrow" style="color: #6b6b6b;"></i>  <%= current_user.neighbourhood %></h2>
+      </div>
+    </div>
+  </div>
+  <br>
+  <h2>My Reports</h2>
+  <% current_user.reports.each do |report| %>
+    <div class="no-underline">
+      <%= link_to report_path(report) do %>
+        <div class="card-report mb-3">
+          <% report.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, class: 'img' %>
+          <% end %>
+          <div class="card-report-infos">
+            <h2><%= report.title %></h2>
+            <p><%= report.description %></p>
+            <div class="d-flex col-auto">
+              <p class="justify-content-begin col"><strong><%= report.status %></strong></p>
+              <p class="justify-content-end col"><strong>Votes: <%= report.votes %></strong></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   <% end %>
-<% end %>
 
-<h3>Reports you follow</h3>
-<% current_user.follows.each do |follow| %>
-  <%= follow.report.title  %>
-    <% follow.report.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-    <% end %>
-<% end %>
+
+  <h2>My Tickets</h2>
+  <% current_user.tickets.each do |ticket| %>
+    <div class="no-underline">
+      <%= link_to ticket_path(ticket) do %>
+        <div class="card-report mb-3">
+          <% ticket.report.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, class: 'img' %>
+          <% end %>
+          <div class="card-report-infos">
+            <h2><%= ticket.report.title %></h2>
+            <p><%= ticket.report.description %></p>
+            <div class="d-flex col-auto">
+              <p class="justify-content-begin col"><strong><%= ticket.status %></strong></p>
+              <p class="justify-content-end col"><strong>Updates: </strong><%= ticket.notes.count%></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <h2>Followed Reports:</h2>
+  <% current_user.follows.each do |follow| %>
+    <div class="no-underline">
+      <%= link_to ticket_path(follow) do %>
+        <div class="card-report mb-3">
+          <% follow.report.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, class: 'img' %>
+          <% end %>
+          <div class="card-report-infos">
+            <h2><%= follow.report.title %></h2>
+            <p><%= follow.report.description %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <%end%>
+</div>
