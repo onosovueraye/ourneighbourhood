@@ -18,7 +18,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to "Profile - #{current_user.name}", "#", class: "dropdown-item" %>
+            <%= link_to "Dashboard - #{current_user.name}", "/dashboard", class: "dropdown-item" %>
           </li>
           <li class="nav-item active">
             <%= link_to "My Reports", "#", class: "dropdown-item" %>

@@ -5,16 +5,36 @@
   <div class="col" id="dash-details">
     <h1><%= current_user.name %></h1>
     <div class="d-flex align-items-center">
-      <i class="fa-sharp fa-solid fa-location-arrow" style="color: #000000;"></i>
-      <h2 class="ms-2"><%= current_user.neighbourhood %></h2>
+
+      <h2 class=""><i class="fa-sharp fa-solid fa-location-arrow" style="color: #6b6b6b;"></i>  <%= current_user.neighbourhood %></h2>
     </div>
   </div>
 </div>
 <br>
 
 <div class="container">
+  <h2>My Reports</h2>
+  <% current_user.reports.each do |report| %>
+    <div class="no-underline">
+      <%= link_to report_path(report) do %>
+        <div class="card-report mb-3">
+          <% report.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, class: 'img' %>
+          <% end %>
+          <div class="card-report-infos">
+            <h2><%= report.title %></h2>
+            <p><%= report.description %></p>
+            <div class="d-flex col-auto">
+              <p class="justify-content-begin col"><strong><%= report.status %></strong></p>
+              <p class="justify-content-end col"><strong>Votes: <%= report.votes %></strong></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 
-  <h1>My Tickets</h1>
+  <h2>My Tickets</h2>
 
   <% @tickets.each do |ticket| %>
   <h2>Ticket Status: <%= link_to ticket.status, ticket_path(ticket) %></h2>
