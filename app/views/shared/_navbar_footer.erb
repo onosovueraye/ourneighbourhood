@@ -1,0 +1,42 @@
+ <div class="navbar-footer">
+      <%= link_to "/reports", :class => current_page?("/reports") ? 'current' : '' do %>
+        <div class="footer-button">
+          <i class="fa-solid fa-map-location-dot"></i>
+        </div>
+      <% end %>
+
+      <% if user_signed_in? %>
+        <%= link_to "/dashboard", :class => current_page?("/dashboard") ? 'current' : '' do %>
+          <div class="footer-button">
+            <i class="fa-solid fa-circle-user"></i>
+          </div>
+        <% end %>
+      <% else %>
+      <% end %>
+
+      <%= link_to new_report_path, :class => current_page?(new_report_path) ? 'current' : '' do %>
+        <div class="footer-button new-report-button">
+          <i class="fa-solid fa-crosshairs"></i>
+        </div>
+      <% end %>
+
+      <% if user_signed_in? %>
+        <%= link_to "/dashboard", :class => current_page?("/dashboard") ? 'current' : '' do %>
+          <div class="footer-button">
+            <i class="fa-regular fa-circle-user"></i>
+          </div>
+        <% end %>
+      <% else %>
+      <% end %>
+
+      <% if user_signed_in? %>
+          <a href="#" class="">
+            <div class="footer-button">
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-navbar-footer" %>
+            </div>
+          </a>
+        <% else %>
+          <%= link_to "Login", new_user_session_path, :class => current_page?(new_user_session_path) ? 'current' : '' %>
+        <% end %>
+
+</div>
