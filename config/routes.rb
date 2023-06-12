@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   # get "myreports", to: "users#reports"
   # get "mytickets", to: "users#tickets"
 
-  resources :tickets, only: [:show, :update] do
+  resources :tickets, only: [:show, :update, :destroy] do
     resources :notes, only: [:new, :create]
   end
 end

@@ -5,6 +5,7 @@
     <span class="contact100-form-title">Make a report </span>
       <div class="form-container">
         <%= simple_form_for [@report], data: {controller: 'geolocation'} do |f| %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <%= f.input :title%>
         <%= f.input :description %>
         <%= f.hidden_field :location %>
@@ -12,7 +13,6 @@
         <%= f.hidden_field :longitude, data: { geolocation_target: "longitude" } %>
         <%= f.input :category, collection: ["Improvement", "Repair"], default:["Improvement"] %>
         <%= f.hidden_field :status, collection: ["Unclaimed", "In Progress", "Done"], defualt: ["Unclaimed"]%>
-        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <%= f.submit "Submit report" %>
       <% end %>
       </div>

@@ -1,8 +1,8 @@
 class Report < ApplicationRecord
   belongs_to :user
-  has_many :follows
-  has_many :comments
-  has_many :tickets
+  has_many :follows, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :tickets, dependent: :destroy
   has_many_attached :photos
   validates :title, presence: true, length: { maximum: 25 }
   validates :description, presence: true, length: { maximum: 200 }

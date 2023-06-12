@@ -18,9 +18,10 @@ class TicketsController < ApplicationController
   end
 
   def create
-    @ticket = Ticket.new()
+    @ticket = Ticket.new
     @ticket.user = current_user
     @ticket.report = Report.find(params[:report_id])
+    @ticket.report.update(status: "In Progress")
     if @ticket.save
       redirect_to ticket_path(@ticket)
     else
@@ -40,8 +41,9 @@ class TicketsController < ApplicationController
 
   def destroy
     @ticket = Ticket.find(params[:id])
+    @ticket.report.update(status: "Unclaimed")
     @ticket.destroy
-    redirect_to dashboard_path
+    redirect_to report_path
   end
 
   private
