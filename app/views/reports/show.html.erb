@@ -68,7 +68,8 @@
   <% end %>
 
   <%= link_to "Back", reports_path, class: "btn btn-outline-secondary rounded-pill btn-sm px-3" %>
+  <% if @report.tickets.map(&:user).include?(current_user) %>
   <%= link_to "Edit", edit_report_path(@report), class: "btn btn-outline-secondary rounded-pill btn-sm px-3" %>
-
+  <% end %>
 </div>
 <div class="footer-padding" style="height: 200px"></div>
