@@ -21,4 +21,6 @@ Rails.application.routes.draw do
   resources :tickets, only: [:show, :update] do
     resources :notes, only: [:new, :create]
   end
+
+  resources :notes, only: [:destroy]
 end

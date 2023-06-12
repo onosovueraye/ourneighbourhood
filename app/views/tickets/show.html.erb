@@ -1,25 +1,55 @@
-<h2>Ticket Status: <%= @ticket.status %></h2>
-
-<p> <%= @ticket.report.title  %></p>
+<div>
   <% @ticket.report.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
-
-<h3>Notes</h3>
-<% @ticket.notes.each do |note| %>
-  <p><%= note.description %></p>
-    <% note.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <%= cl_image_tag photo.key, class: "ts-rep-img-size", crop: :fill %>
   <% end %>
-<% end %>
+</div>
+<div class="container">
+  <div class="d-flex justify-content-center mt-4 mb-2">
+    <h2><%= @ticket.report.title %></h2>
+  </div>
+  <p><strong>Report Description: </strong><%= @ticket.report.description %></p>
+  <h3>Ticket Status: <%= @ticket.status %></h3>
+  <br>
+  <div class="dropdown" data-controller="form">
+    <button data-action="click->form#toggleForm" class="btn btn-outline-primary rounded-pill btn-lg px-3">Add an Update</button>
+    <div class="dropdown-content" data-form-target="formContainer">
+      <%= simple_form_for [@ticket, @note] do |f| %>
+        <%= f.input :description, label: "Leave a note" %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.submit "Submit note", class: "btn btn-primary rounded-pill btn-lg px-3" %>
+      <% end %>
+    </div>
+  </div>
+  <br>
+  <h4>Notes: </h4>
+  <% @ticket.notes.each do |note| %>
+    <div class="no-underline">
+      <div class="card-report mb-3">
+        <% note.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, class: 'img' %>
+        <% end %>
+        <div class="card-report-infos">
+          <div>
+            <p id="submit-p"><strong>Submitted by: <%= note.ticket.user.name %></strong></p>
+          </div>
+          <p><%= note.description %></p>
+        </div>
+        <div class="d-flex justify-content-end">
+          <%= link_to "Delete",
+            note_path(note),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+            class: "btn btn-outline-secondary rounded-pill btn-sm px-3"
+          %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 
-<%= simple_form_for [@ticket, @note] do |f| %>
-  <%= f.input :description, label: "Leave a note" %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit "Submit note" %>
-<% end %>
-
-<%= link_to "close_ticket", close_ticket_path(@ticket) %> |
-
-<%= link_to "Back", report_path(@ticket.report) %> |
+  <br>
+  <div class="row mx-1">
+    <%= link_to "Back", report_path(@ticket.report), class: "col-3 btn btn-outline-primary rounded-pill btn-lg " %>
+    <div class="col-1"></div>
+    <%= link_to "I've Done This!", close_ticket_path(@ticket), class: "col-8 btn btn-primary rounded-pill btn-lg" %>
+  </div>
+</div>
 <div class="footer-padding" style="height: 200px"></div>
