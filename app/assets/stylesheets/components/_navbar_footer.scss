@@ -8,15 +8,16 @@
   height: 80px;
   width: 100%;
   padding: 8px 0 8px 0;
-  border-radius: 16px 0 0 16px;
+  border-radius: 16px 16px 0 0;
+  z-index: 10;
   a {
     text-decoration: none;
     display: flex;
   }
-}
-.btn {
-  --bs-btn-padding-x: 0;
-  --bs-btn-padding-y: 0;
+  .btn {
+    --bs-btn-padding-x: 0;
+    --bs-btn-padding-y: 0;
+  }
 }
 
 .dropup .dropdown-toggle::after {

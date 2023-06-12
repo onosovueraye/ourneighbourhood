@@ -1,6 +1,5 @@
 <div class="container tabs" data-controller="toggle-map">
 
-
   <div class="tab-content" id="pills-tabContent">
 
     <ul class="nav nav-pills mb-3 w-100 my-2" id="pills-tab" role="tablist">
@@ -11,14 +10,12 @@
         <button class="nav-link w-100 rounded-pill border border-primary ml-3" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Map</button>
       </li>
     </ul>
+
     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
       <%= render 'pages/report_card', report: @reports %>
     </div>
+
   </div>
-
-  <!-- <%= link_to "New report", new_report_path, class: 'btn btn-primary rounded-pill mb-3 align-center' %>
--->
-
 
 </div>
 
