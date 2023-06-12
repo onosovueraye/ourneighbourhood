@@ -39,6 +39,12 @@
           <%= simple_form_for [@report, @ticket] do |f| %>
             <%= f.submit "Claim report", class: "btn btn-primary rounded-pill btn-sm px-3 " %>
           <% end %>
+          <% else %>
+            <%= link_to "Unclaim Report",
+              ticket_path(@report.tickets.first),
+              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+              class: "btn btn-outline-secondary rounded-pill btn-sm px-3"
+            %>
         <% end %>
       </div>
     </div>

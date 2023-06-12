@@ -1,14 +1,19 @@
-<%= simple_form_for [@report] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :location %>
-  <%= f.input :category %>
-  <%= f.input :status %>
-  <%= f.input :votes %>
-  <%= link_to "Delete",
-    report_path(@report),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-    class: "btn btn-outline-secondary rounded-pill btn-sm px-3"
-  %>
-  <%= f.submit "Update Report", class: "btn btn-primary rounded-pill btn-sm px-3" %>
-<% end %>
+<div class="container-contact100">
+  <div class="wrap-contact100">
+
+    <div class="container">
+      <%= simple_form_for [@report] do |f| %>
+        <%= f.input :title %>
+        <%= f.input :description %>
+        <%= f.input :location %>
+        <%= f.input :category %>
+        <%= link_to "Delete",
+                  report_path(@report),
+                  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+                  class: "btn btn-outline-secondary rounded-pill btn-sm px-3"
+                %>
+        <%= f.submit "Update Report", class: "btn btn-primary rounded-pill btn-sm px-3" %>
+      <% end %>
+    </div>
+  </div>
+</div>
