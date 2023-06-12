@@ -16,6 +16,12 @@ class NotesController < ApplicationController
     end
   end
 
+  def destroy
+    @note = Note.find(params[:id])
+    @note.destroy
+    redirect_to ticket_path(@note.ticket), status: :see_other
+  end
+
   def note_params
     params.require(:note).permit(:description, photos: [])
   end
