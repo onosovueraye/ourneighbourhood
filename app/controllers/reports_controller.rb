@@ -15,6 +15,14 @@ class ReportsController < ApplicationController
       distances.push(Geocoder::Calculations.distance_between(user_coordinates, [report.latitude, report.longitude]))
     end
 
+    @markers = @reports.geocoded.map do |report|
+      {
+        lat: report.latitude,
+        lng: report.longitude
+      }
+    end
+
+
   end
 
   def show
