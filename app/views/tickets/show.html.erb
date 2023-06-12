@@ -44,23 +44,22 @@
       </div>
     </div>
   <% end %>
-<% end %>
 
-<%= simple_form_for [@ticket, @note] do |f| %>
-  <%= f.input :description, label: "Leave a note" %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit "Submit note" %>
-<% end %>
 
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">modal
-</button>
+  <%= simple_form_for [@ticket, @note] do |f| %>
+    <%= f.input :description, label: "Leave a note" %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.submit "Submit note" %>
+  <% end %>
+
+  <button type="button" class="col-8 btn btn-primary rounded-pill btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">I've Done This!
+  </button>
 
 
   <br>
   <div class="row mx-1">
     <%= link_to "Back", report_path(@ticket.report), class: "col-3 btn btn-outline-primary rounded-pill btn-lg " %>
     <div class="col-1"></div>
-    <%= link_to "I've Done This!", close_ticket_path(@ticket), class: "col-8 btn btn-primary rounded-pill btn-lg" %>
   </div>
 </div>
 <div class="footer-padding" style="height: 200px"></div>
