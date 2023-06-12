@@ -12,6 +12,7 @@ class TicketsController < ApplicationController
   def close_ticket
     @ticket = Ticket.find(params[:ticket_id])
     @ticket.status = "Done"
+    @ticket.report.update(status: "Done")
     if  @ticket.save!
       redirect_to ticket_path(@ticket)
     end
