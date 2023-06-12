@@ -1,19 +1,27 @@
+<ul class="nav nav-pills mb-3 w-100 my-2" id="pills-tab" role="tablist">
+  <li class="nav-item w-50 p-0" role="presentation">
+    <button class="nav-link w-100 active rounded-pill" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Reports</button>
+  </li>
+  <li class="nav-item w-50 p-0 " role="presentation">
+    <button class="nav-link w-100 rounded-pill" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Map</button>
+  </li>
+</ul>
 <div class="container" data-controller="toggle-map">
+
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+      <%= render 'pages/report_card', report: @reports %>
+    </div>
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+      <div style="width: 100%; height: 600px;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    </div>
+  </div>
 
   <!-- <%= link_to "New report", new_report_path, class: 'btn btn-primary rounded-pill mb-3 align-center' %>
 -->
 
-  <div class=" d-flex btn-group btn-group-toggle justify-content-center my-2" role="group" aria-label="Basic example">
-
-    <div>
-
-
-    </div>
-    <%= link_to "all reports",  reports_path, class: 'btn btn-primary rounded-pill'  %>
-    <%= link_to "Map", reports_path, class: 'btn btn-primary rounded-pill', data: { action: 'click->toggle-map#fire' } %>
-  </div>
-    <div data-toggle-map-target="toggle">
-      <%= render 'pages/report_card', report: @reports %>
-    </div>
 
 </div>
