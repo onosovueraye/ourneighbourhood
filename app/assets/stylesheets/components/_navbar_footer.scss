@@ -3,20 +3,25 @@
   justify-content: space-evenly;
   background-color: #ffffff;
   color: #ffffff;
-  overflow: hidden;
   position: fixed;
   bottom: 0;
   height: 80px;
   width: 100%;
   padding: 8px 0 8px 0;
+  border-radius: 16px 0 0 16px;
   a {
     text-decoration: none;
     display: flex;
   }
 }
+.btn {
+  --bs-btn-padding-x: 0;
+  --bs-btn-padding-y: 0;
+}
 
-.current {
-  color: $primary;
+.dropup .dropdown-toggle::after {
+
+  border-bottom: 0;
 }
 
 .footer-button {
@@ -32,18 +37,17 @@
 
 .footer-button:hover {
   color: $primary;
-  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.6);
   transition: 0.4s;
-  width: 60px;
-  height: 60px;
 }
 
 .new-report-button {
   // position: absolute;
   height: 80px;
   width: 80px;
-  box-shadow: 0px 3px 10px rgba(0,0,0,0.2);
+  border: solid 2px $light-gray;
   background: #ffffff;
+  position: relative;
+  top: -18px;
   i {
     font-size: 1.5em;
   }
@@ -52,4 +56,8 @@
 .avatar-navbar-footer {
   width: 60%;
   border-radius: 50%;
+}
+
+.current i {
+  color: $primary;
 }
