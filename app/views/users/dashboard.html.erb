@@ -1,7 +1,7 @@
 <div class="container">
   <div class="dash-info row">
     <div class="col-auto">
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-large", alt: "avatar image" %>
+      <%= cl_image_tag current_user.photo.key, class: "avatar-large", alt: "avatar image" %>
     </div>
     <div class="col" id="dash-details">
       <h1><%= current_user.name %></h1>
