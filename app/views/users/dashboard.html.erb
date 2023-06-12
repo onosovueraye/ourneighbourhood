@@ -12,63 +12,93 @@
     </div>
   </div>
   <br>
-  <h2>My Reports</h2>
-  <% current_user.reports.each do |report| %>
-    <div class="no-underline">
-      <%= link_to report_path(report) do %>
-        <div class="card-report mb-3">
-          <% report.photos.each do |photo| %>
-            <%= cl_image_tag photo.key, class: 'img' %>
-          <% end %>
-          <div class="card-report-infos">
-            <h2><%= report.title %></h2>
-            <p><%= report.description %></p>
-            <div class="d-flex col-auto">
-              <p class="justify-content-begin col"><strong><%= report.status %></strong></p>
-              <p class="justify-content-end col"><strong>Votes: <%= report.votes %></strong></p>
+
+
+  <button type="button" class="dash-collapse">My Reports</button>
+  <div class="dash-content"><br>
+    <% current_user.reports.each do |report| %>
+      <div class="no-underline">
+        <%= link_to report_path(report) do %>
+          <div class="dash-report mb-3">
+            <% report.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, class: 'img' %>
+            <% end %>
+            <div class="dash-report-infos">
+              <h2><%= report.title %></h2>
+              <p><%= report.description %></p>
+              <div class="d-flex col-auto">
+                <p class="justify-content-begin col"><strong><%= report.status %></strong></p>
+                <p class="justify-content-end col"><strong>Votes: <%= report.votes %></strong></p>
+              </div>
             </div>
           </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+
+
+  <button type="button" class="dash-collapse">My Tickets</button>
+  <div class="dash-content">
+    <div>
+      <% current_user.tickets.each do |ticket| %>
+        <div class="no-underline">
+          <%= link_to ticket_path(ticket) do %>
+            <div class="dash-report mb-3">
+              <% ticket.report.photos.each do |photo| %>
+                <%= cl_image_tag photo.key, class: 'img' %>
+              <% end %>
+              <div class="dash-report-infos">
+                <h2><%= ticket.report.title %></h2>
+                <p><%= ticket.report.description %></p>
+                <div class="d-flex col-auto">
+                  <p class="justify-content-begin col"><strong><%= ticket.status %></strong></p>
+                  <p class="justify-content-end col"><strong>Updates: </strong><%= ticket.notes.count%></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
         </div>
       <% end %>
     </div>
-  <% end %>
+  </div>
 
 
-  <h2>My Tickets</h2>
-  <% current_user.tickets.each do |ticket| %>
-    <div class="no-underline">
-      <%= link_to ticket_path(ticket) do %>
-        <div class="card-report mb-3">
-          <% ticket.report.photos.each do |photo| %>
-            <%= cl_image_tag photo.key, class: 'img' %>
-          <% end %>
-          <div class="card-report-infos">
-            <h2><%= ticket.report.title %></h2>
-            <p><%= ticket.report.description %></p>
-            <div class="d-flex col-auto">
-              <p class="justify-content-begin col"><strong><%= ticket.status %></strong></p>
-              <p class="justify-content-end col"><strong>Updates: </strong><%= ticket.notes.count%></p>
+  <button type="button" class="dash-collapse">Followed Reports:</button>
+  <div class="dash-content">
+    <% current_user.follows.each do |follow| %>
+      <div class="no-underline">
+        <%= link_to ticket_path(follow) do %>
+          <div class="dash-report mb-3">
+            <% follow.report.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, class: 'img' %>
+            <% end %>
+            <div class="dash-report-infos">
+              <h2><%= follow.report.title %></h2>
+              <p><%= follow.report.description %></p>
             </div>
           </div>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+        <% end %>
+      </div>
+    <%end%>
+  </div>
 
-  <h2>Followed Reports:</h2>
-  <% current_user.follows.each do |follow| %>
-    <div class="no-underline">
-      <%= link_to ticket_path(follow) do %>
-        <div class="card-report mb-3">
-          <% follow.report.photos.each do |photo| %>
-            <%= cl_image_tag photo.key, class: 'img' %>
-          <% end %>
-          <div class="card-report-infos">
-            <h2><%= follow.report.title %></h2>
-            <p><%= follow.report.description %></p>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  <%end%>
 </div>
+
+<script>
+var coll = document.getElementsByClassName("dash-collapse");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
+</script>

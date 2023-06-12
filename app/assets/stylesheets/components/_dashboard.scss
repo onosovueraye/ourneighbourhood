@@ -9,3 +9,73 @@
 .note-box {
   border: 1px black;
 }
+
+/* Style the button that is used to open and close the collapsible content */
+.dash-collapse {
+  background-color: white;
+  font-size: 20px !important;
+  color: #444;
+  border-radius: 100px;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: 2px $primary;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  margin-top: p
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .dash-collapse:hover {
+  background-color: #ffffff;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.dash-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease-out;
+  margin: 8px;
+}
+
+.dash-collapse button {
+  font-size: large;
+}
+
+.dash-report {
+  overflow: hidden;
+//   height: 120px;
+  border-radius: 16px;
+  background: white;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  color: #2B272C;
+  height: 150px;
+}
+
+.dash-report img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+  flex: none;
+}
+
+.dash-report h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.dash-report p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.dash-report .dash-report-infos {
+  padding: 16px;
+}
