@@ -29,16 +29,26 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  font-size: 2em;
   color: gray;
   display: flex;
   align-items: center;
   justify-content: center;
+  p {
+   font-size: 0.8em;
+  }
+  i {
+    font-size: 2em;
+  }
 }
 
 .footer-button:hover {
   color: $primary;
   transition: 0.4s;
+}
+
+.footer-button {
+  // justify-content: center;
+  text-align: center
 }
 
 .new-report-button {
@@ -49,9 +59,7 @@
   background: #ffffff;
   position: relative;
   top: -18px;
-  i {
-    font-size: 1.5em;
-  }
+
 }
 
 .avatar-navbar-footer {

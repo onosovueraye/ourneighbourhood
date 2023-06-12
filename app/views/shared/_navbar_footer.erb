@@ -16,7 +16,7 @@
 
       <%= link_to new_report_path, :class => current_page?(new_report_path) ? 'current' : '' do %>
         <div class="footer-button new-report-button">
-          <i class="fa-solid fa-crosshairs"></i>
+          <i class="fa-regular fa-star"></i>
         </div>
       <% end %>
 
@@ -33,7 +33,7 @@
         <% if user_signed_in? %>
           <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             <div class="footer-button">
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-navbar-footer" %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar-navbar-footer" %>
             </div>
           </button>
           <ul class="dropdown-menu">
