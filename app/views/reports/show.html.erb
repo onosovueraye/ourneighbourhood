@@ -1,6 +1,5 @@
 <div>
   <% @report.photos.each do |photo| %>
-    <%# photo.key %>
     <%= cl_image_tag photo.key, class: "rs-img-size", crop: :fill %>
   <% end %>
 </div>
