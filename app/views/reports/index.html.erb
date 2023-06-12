@@ -1,6 +1,19 @@
-<div class="container">
-  <h1>All reports</h1>
-  <%= link_to "New report", new_report_path, class: 'btn btn-primary rounded-pill mb-3 align-center' %>
+<div class="container" data-controller="toggle-map">
 
-  <%= render 'pages/report_card', report: @reports %>
+  <!-- <%= link_to "New report", new_report_path, class: 'btn btn-primary rounded-pill mb-3 align-center' %>
+-->
+
+  <div class=" d-flex btn-group btn-group-toggle justify-content-center my-2" role="group" aria-label="Basic example">
+
+    <div>
+
+
+    </div>
+    <%= link_to "all reports",  reports_path, class: 'btn btn-primary rounded-pill'  %>
+    <%= link_to "Map", reports_path, class: 'btn btn-primary rounded-pill', data: { action: 'click->toggle-map#fire' } %>
+  </div>
+    <div data-toggle-map-target="toggle">
+      <%= render 'pages/report_card', report: @reports %>
+    </div>
+
 </div>

@@ -1,7 +1,10 @@
 <div>
-  <% @report.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, class: "rs-img-size", crop: :fill %>
-  <% end %>
+  <button type="button" class="rs-img-size" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <% @report.photos.each do |photo| %>
+      <%# photo.key %>
+      <%= cl_image_tag photo.key, class: "rs-img-size", crop: :fill %>
+    <% end %>
+  </button>
 </div>
 
 
@@ -72,3 +75,21 @@
   <% end %>
 </div>
 <div class="footer-padding" style="height: 200px"></div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Photo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= cl_image_tag @report.photos.first.key, class: "modal-img", crop: :fill %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
