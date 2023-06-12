@@ -8,5 +8,5 @@ class User < ApplicationRecord
   has_many :follows
   has_many :comments
   has_many :tickets
-  
+  has_one_attached :photo
 end
