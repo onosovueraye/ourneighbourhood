@@ -1,7 +1,20 @@
 class ReportsController < ApplicationController
 
   def index
+
+    # @reports = Report.order(:location, )
     @reports = Report.all
+
+    user_coordinates = Geocoder.coordinates(current_user.address)
+
+    @reports = Report.near(user_coordinates, 8_000_000, order: 'distance')
+
+    distances = []
+
+    @reports.each do |report|
+      distances.push(Geocoder::Calculations.distance_between(user_coordinates, [report.latitude, report.longitude]))
+    end
+
   end
 
   def show
