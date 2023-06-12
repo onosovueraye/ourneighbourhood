@@ -1,14 +1,14 @@
  <div class="navbar-footer">
       <%= link_to "/reports", :class => current_page?("/reports") ? 'current' : '' do %>
         <div class="footer-button">
-          <i class="fa-solid fa-map-location-dot"></i>
+          <i class="fa-regular fa-map"></i>
         </div>
       <% end %>
 
       <% if user_signed_in? %>
         <%= link_to "/dashboard", :class => current_page?("/dashboard") ? 'current' : '' do %>
           <div class="footer-button">
-            <i class="fa-solid fa-circle-user"></i>
+            <i class="fa-regular fa-circle-user"></i>
           </div>
         <% end %>
       <% else %>
@@ -29,14 +29,20 @@
       <% else %>
       <% end %>
 
-      <% if user_signed_in? %>
-          <a href="#" class="">
+      <div class="btn-group dropup">
+        <% if user_signed_in? %>
+          <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             <div class="footer-button">
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-navbar-footer" %>
             </div>
-          </a>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Edit profile</a></li>
+            <li><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %></li>
+          </ul>
         <% else %>
           <%= link_to "Login", new_user_session_path, :class => current_page?(new_user_session_path) ? 'current' : '' %>
         <% end %>
+      </div>
 
 </div>
