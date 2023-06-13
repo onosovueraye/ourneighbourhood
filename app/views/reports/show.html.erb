@@ -23,17 +23,20 @@
     </div>
   </div>
   <h2 class="mt-2"><%= @report.title %></h2>
-  <p>Description: <br><%= @report.description %></p>
+  <p><%= @report.description %></p>
   <div>
     <% if @report.tickets.count != 0 %>
       <div>
         <div class="activity-card">
           <div class="d-flex justify-content-begin">
-            <h3>Activity</h3>
+            <h5>Progress</h5>
           </div>
           <div>
             <% @report.tickets.each do |ticket| %>
               <p><%= ticket.user.name %> started working on this <%= time_ago_in_words(ticket.created_at) %> ago</p>
+              <% if ticket.status == "Done" %>
+                <p><%= ticket.user.name %> finished this report</p>
+              <% end %>
             <% end %>
           </div>
         </div>
@@ -44,7 +47,7 @@
   </div>
   <br>
   <div>
-    <div style="width: 100%; height: 200px;" class="mb-3"
+    <div style="width: 100%; height: 200px;" class="mb-3" id="map-container"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
