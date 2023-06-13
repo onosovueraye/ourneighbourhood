@@ -73,3 +73,19 @@
 .ticket-collapse button {
   font-size: large;
 }
+
+.ticket-img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+  flex: none;
+}
+
+#delete-note-btn {
+  align-items: end;
+}
+
+
+.delete-btn {
+  color: #4CAF50;
+}

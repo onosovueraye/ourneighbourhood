@@ -32,11 +32,9 @@
             <h3>Activity</h3>
           </div>
           <div>
-            <p>
-              <% @report.tickets.each do |ticket| %>
-                <%= ticket.user.name %> started working on this <%= time_ago_in_words(ticket.created_at) %> ago
-              <% end %>
-            </p>
+            <% @report.tickets.each do |ticket| %>
+              <p><%= ticket.user.name %> started working on this <%= time_ago_in_words(ticket.created_at) %> ago</p>
+            <% end %>
           </div>
         </div>
       </div>
@@ -46,7 +44,7 @@
   </div>
   <br>
   <div>
-    <div style="width: 100%; height: 200px;"
+    <div style="width: 100%; height: 200px;" class="mb-3"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
@@ -59,13 +57,13 @@
       <div class="col-6 d-flex justify-content-end">
         <% if !@report.tickets.map(&:user).include?(current_user) %>
           <%= simple_form_for [@report, @ticket] do |f| %>
-            <%= f.submit "Claim report", class: "btn btn-primary rounded-pill btn-sm px-3 " %>
+            <%= f.submit "Claim report", class: "btn btn-primary rounded-pill px-3" %>
           <% end %>
           <% else %>
             <%= link_to "Unclaim Report",
               ticket_path(@report.tickets.first),
               data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-              class: "btn btn-outline-secondary rounded-pill btn-sm px-3"
+              class: "btn btn-outline-secondary rounded-pill px-3"
             %>
         <% end %>
       </div>
@@ -85,13 +83,13 @@
 
 
   <%= simple_form_for [@report, @comment] do |f| %>
-    <%= f.input :description, label: "Leave a comment" %>
-    <%= f.submit "Submit comment", class: "btn btn-outline-primary rounded-pill btn-sm px-3 mb-3" %>
+    <%= f.input :description, label: "Leave a comment", :input_html => {:style=> '', class: 'rounded-4'} %>
+    <%= f.submit "Submit comment", class: "btn btn-outline-primary rounded-pill px-3 mb-3" %>
   <% end %>
 
-  <%= link_to "Back", reports_path, class: "btn btn-outline-secondary rounded-pill btn-sm px-3" %>
+  <%= link_to "Back", reports_path, class: "btn btn-outline-secondary rounded-pill px-3" %>
   <% if @report.tickets.map(&:user).include?(current_user) %>
-  <%= link_to "Edit", edit_report_path(@report), class: "btn btn-outline-secondary rounded-pill btn-sm px-3" %>
+  <%= link_to "Edit", edit_report_path(@report), class: "btn btn-outline-secondary rounded-pill px-3" %>
   <% end %>
 </div>
 <div class="footer-padding" style="height: 200px"></div>
