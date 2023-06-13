@@ -3,19 +3,21 @@ class ReportsController < ApplicationController
   def index
 
     # @reports = Report.order(:location, )
-    @reports = Report.all
+    #@reports = Report.all
+
 
     user_coordinates = Geocoder.coordinates(current_user.address)
 
     @reports = Report.near(user_coordinates, 8_000_000, order: 'distance')
 
+    @reports_active = @reports.where.not(status: "Done")
     distances = []
 
-    @reports.each do |report|
+    @reports_active.each do |report|
       distances.push(Geocoder::Calculations.distance_between(user_coordinates, [report.latitude, report.longitude]))
     end
 
-    @markers = @reports.geocoded.map do |report|
+    @markers = @reports_active.geocoded.map do |report|
       {
         lat: report.latitude,
         lng: report.longitude,
@@ -35,7 +37,8 @@ class ReportsController < ApplicationController
     @markers = [
       {
         lat: @report.latitude,
-        lng: @report.longitude
+        lng: @report.longitude,
+        marker_html: render_to_string(partial: "marker", locals: {report: @report})
       }
     ]
   end
@@ -49,7 +52,7 @@ class ReportsController < ApplicationController
     @report.user = current_user
     # raise
     if @report.save
-      redirect_to reports_path
+      redirect_to report_path(@report)
     else
       render :new, status: :unprocessable_entity
     end

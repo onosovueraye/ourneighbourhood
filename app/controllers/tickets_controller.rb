@@ -11,9 +11,10 @@ class TicketsController < ApplicationController
 
   def close_ticket
     @ticket = Ticket.find(params[:ticket_id])
-    @ticket.status = "Done"
+    @ticket.update(status: "Done")
+    @ticket.report.update(status: "Done")
     if  @ticket.save!
-      redirect_to ticket_path(@ticket)
+      redirect_to journal_path(@ticket)
     end
   end
 
@@ -42,6 +43,7 @@ class TicketsController < ApplicationController
   def destroy
     @ticket = Ticket.find(params[:id])
     @ticket.report.update(status: "Unclaimed")
+    @ticket.notes.destroy_all
     @ticket.destroy
     redirect_to report_path
   end

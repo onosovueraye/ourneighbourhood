@@ -1,0 +1,19 @@
+<div class="container">
+  <h1 class="my-5" >Your Neighbourhood Journal</h1>
+    <div class="col-auto text-center my-5">
+      <%= cl_image_tag current_user.photo.key, class: "avatar-large", alt: "avatar image" %>
+    </div>
+<div class="text-center" >
+ <p class="fa-solid">🎉</p>
+</div>
+<h2 class="text-center mb-5">Congratulations! <%= current_user.name %></h2>
+
+  <% @reports.each do |report| %>
+  <h3 class="text-center my-5"> You just completed <%= report.title %></h3>
+
+  <h4 class="text-center my-5">Would you like to pick another report?</h4>
+  <div class="col-auto text-center mt-5">
+  <%= link_to "Find Your Next Task", reports_path, class: "col-3 btn btn-outline-primary rounded-pill btn-lg text-center" %>
+  <% end %>
+</div>
+</div>

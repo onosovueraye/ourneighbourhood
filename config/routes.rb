@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   resources :follows, only: [:destroy]
   get "dashboard", to: "users#dashboard"
+  get "journal", to: "pages#journal"
   # get "myreports", to: "users#reports"
   # get "mytickets", to: "users#tickets"
 
