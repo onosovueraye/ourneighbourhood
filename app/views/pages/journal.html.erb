@@ -1,8 +1,20 @@
 <div class="container">
-  <h1>Your Neighbourhood Journal</h1>
-  <%= cl_image_tag current_user.photo.key %>
+  <h1 class="my-5" >Your Neighbourhood Journal</h1>
+    <div class="col-auto text-center my-5">
+      <%= cl_image_tag current_user.photo.key, class: "avatar-large", alt: "avatar image" %>
+    </div>
+<div class="text-center" >
+ <i class="fa-solid fa-champagne-glasses"></i>
+</div>
+<h2>Congratulations! <%= current_user.name %></h2>
+
   <% @reports.each do |report| %>
-  <%= report.title %>
+ <h3> You just completed <%= report.title %></h3>
+
+ <h4>Would you like to pick another report?</h4>
+ <%= link_to "Find Yout Next Task", reports_path do %>
+
+ <% end %>
   <% end %>
 
 </div>

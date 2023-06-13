@@ -14,7 +14,7 @@ class TicketsController < ApplicationController
     @ticket.update(status: "Done")
     @ticket.report.update(status: "Done")
     if  @ticket.save!
-      redirect_to ticket_path(@ticket)
+      redirect_to journal_path(@ticket)
     end
   end
 
