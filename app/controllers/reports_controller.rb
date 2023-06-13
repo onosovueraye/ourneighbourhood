@@ -49,7 +49,7 @@ class ReportsController < ApplicationController
     @report.user = current_user
     # raise
     if @report.save
-      redirect_to reports_path
+      redirect_to report_path(@report)
     else
       render :new, status: :unprocessable_entity
     end
