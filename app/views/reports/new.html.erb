@@ -4,16 +4,16 @@
     <span class="contact100-form-title">Let's start improving!</span>
       <div class="form-container">
         <%= simple_form_for [@report], data: {controller: 'geolocation'} do |f| %>
-        <%= f.input :photos, as: :file, label: 'Take a photo', :input_html=> { multiple: true, :style=> '', class: 'rounded-4'} %>
-        <%= f.input :title, label: 'what is it?', placeholder: 'A small change please 💡', :input_html => {:style=> '', class: 'rounded-4'} %>
-        <%= f.input :description, label: 'A short description', placeholder: 'Write a little about what you found 🚯 or your idea for improvement 🌈', :input_html => {:style=> '', class: 'rounded-4'}%>
-        <%= f.hidden_field :location %>
-        <%= f.hidden_field :latitude, data: { geolocation_target: "latitude" } %>
-        <%= f.hidden_field :longitude, data: { geolocation_target: "longitude" } %>
-        <%= f.input :category, collection: ["Improvement", "Repair"], default:["Improvement"] %>
-        <%= f.hidden_field :status, collection: ["Unclaimed", "In Progress", "Done"], defualt: ["Unclaimed"]%>
-        <%= f.submit "Share your idea!", class: 'btn btn-primary rounded-pill btn-lg col-12 mt-5' %>
-      <% end %>
+          <%= f.input :photos, as: :file, label: 'Take a photo', :input_html=> { multiple: true, :style=> '', class: 'rounded-4'} %>
+          <%= f.input :title, label: 'what is it?', placeholder: 'A small change please 💡', :input_html => {:style=> '', class: 'rounded-4'} %>
+          <%= f.input :description, label: 'A short description', placeholder: 'Write a little about what you found 🚯 or your idea for improvement 🌈', :input_html => {:style=> '', class: 'rounded-4'}%>
+          <%= f.hidden_field :location %>
+          <%= f.hidden_field :latitude, data: { geolocation_target: "latitude" } %>
+          <%= f.hidden_field :longitude, data: { geolocation_target: "longitude" } %>
+          <%= f.input :category, collection: ["Improvement", "Repair"], default:["Improvement"] %>
+          <%= f.hidden_field :status, collection: ["Unclaimed", "In Progress", "Done"], defualt: ["Unclaimed"]%>
+          <%= f.submit "Share your idea!", class: 'btn btn-primary rounded-pill btn-lg col-12 mt-5' %>
+        <% end %>
       </div>
     </div>
   </div>

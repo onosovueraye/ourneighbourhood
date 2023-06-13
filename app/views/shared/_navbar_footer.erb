@@ -8,7 +8,7 @@
       <% if user_signed_in? %>
         <%= link_to "/dashboard", :class => current_page?("/dashboard") ? 'current' : '' do %>
           <div class="footer-button">
-            <i class="fa-regular fa-circle-user"></i>
+            <i class="fa-regular fa-circle-check"></i>
           </div>
         <% end %>
       <% else %>
@@ -16,14 +16,14 @@
 
       <%= link_to new_report_path, :class => current_page?(new_report_path) ? 'current' : '' do %>
         <div class="footer-button new-report-button">
-          <i class="fa-regular fa-star"></i>
+          <i class="fa-solid fa-plus"></i>
         </div>
       <% end %>
 
       <% if user_signed_in? %>
         <%= link_to "/dashboard", :class => current_page?("/dashboard") ? 'current' : '' do %>
           <div class="footer-button">
-            <i class="fa-regular fa-circle-check"></i>
+            <i class="fa-regular fa-circle-user"></i>
           </div>
         <% end %>
       <% else %>
