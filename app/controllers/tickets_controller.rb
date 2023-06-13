@@ -42,6 +42,7 @@ class TicketsController < ApplicationController
   def destroy
     @ticket = Ticket.find(params[:id])
     @ticket.report.update(status: "Unclaimed")
+    @ticket.notes.destroy_all
     @ticket.destroy
     redirect_to report_path
   end

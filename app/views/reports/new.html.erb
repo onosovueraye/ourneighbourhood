@@ -6,7 +6,7 @@
         <%= simple_form_for [@report], data: {controller: 'geolocation'} do |f| %>
         <%= f.input :photos, as: :file, label: 'Take a photo', :input_html=> { multiple: true, :style=> '', class: 'rounded-4'} %>
         <%= f.input :title, label: 'what is it?', placeholder: 'A small change please 💡', :input_html => {:style=> '', class: 'rounded-4'} %>
-        <%= f.input :description, label: 'A short description', placeholder: 'Write a little about what you found 🚯 or your idea for improvement 🌈', :input_html => {:style=> '', class: 'rounded-4'}%>
+        <%= f.input :description, label: 'A short description', placeholder: 'Write a little about what you found 🚯 or your idea for improvement 🌈', :input_html => {:style=> '', class: 'rounded-4'} %>
         <%= f.hidden_field :location %>
         <%= f.hidden_field :latitude, data: { geolocation_target: "latitude" } %>
         <%= f.hidden_field :longitude, data: { geolocation_target: "longitude" } %>
