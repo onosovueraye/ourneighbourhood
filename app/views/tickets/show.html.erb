@@ -10,60 +10,53 @@
   <p><strong>Report Description: </strong><%= @ticket.report.description %></p>
   <h3>Ticket Status: <%= @ticket.status %></h3>
   <br>
-  <div class="dropdown" data-controller="form">
-    <button data-action="click->form#toggleForm" class="btn btn-outline-primary rounded-pill btn-lg px-3">Add an Update</button>
-    <div class="dropdown-content" data-form-target="formContainer">
+  <% if @ticket.notes.count != 0 %>
+    <h4>Notes: </h4>
+    <% @ticket.notes.each do |note| %>
+      <div class="no-underline">
+        <div class="card-report mb-3">
+          <% note.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, class: 'img' %>
+          <% end %>
+          <div class="card-report-infos">
+            <div>
+              <p id="submit-p"><strong>Posted <%= note.ticket.user.name %></strong></p>
+            </div>
+            <p><%= note.description %></p>
+          </div>
+          <div class="d-flex justify-content-end">
+            <%= link_to "Delete",
+              note_path(note),
+              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+              class: "btn btn-outline-secondary rounded-pill btn-sm px-3"
+            %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <br>
+  <% end %>
+
+  <button type="button" class="ticket-collapse btn btn-outline-primary rounded-pill btn-lg px-3">Add an Update</button>
+  <div class="ticket-content">
+    <div class="form-container" >
       <%= simple_form_for [@ticket, @note] do |f| %>
-        <%= f.input :description, label: "Leave a note" %>
-        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.input :description, label: "Leave a note", :input_html => {:style=> '', class: 'rounded-4'} %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true }, :input_html=> { multiple: true, :style=> '', class: 'rounded-4'} %>
         <%= f.submit "Submit note", class: "btn btn-primary rounded-pill btn-lg px-3" %>
       <% end %>
     </div>
   </div>
-  <br>
-  <h4>Notes: </h4>
-  <% @ticket.notes.each do |note| %>
-    <div class="no-underline">
-      <div class="card-report mb-3">
-        <% note.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, class: 'img' %>
-        <% end %>
-        <div class="card-report-infos">
-          <div>
-            <p id="submit-p"><strong>Submitted by: <%= note.ticket.user.name %></strong></p>
-          </div>
-          <p><%= note.description %></p>
-        </div>
-        <div class="d-flex justify-content-end">
-          <%= link_to "Delete",
-            note_path(note),
-            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-            class: "btn btn-outline-secondary rounded-pill btn-sm px-3"
-          %>
-        </div>
-      </div>
-    </div>
-  <% end %>
-
-
-  <%= simple_form_for [@ticket, @note] do |f| %>
-    <%= f.input :description, label: "Leave a note" %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.submit "Submit note" %>
-  <% end %>
-
-  <button type="button" class="col-8 btn btn-primary rounded-pill btn-lg mt-3 mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">I've Done This!
-  </button>
-
 
   <br>
   <div class="row mx-1">
     <%= link_to "Back", report_path(@ticket.report), class: "col-3 btn btn-outline-primary rounded-pill btn-lg " %>
-    <div class="col-3"></div>
+    <div class="col-1"></div>
+      <button type="button" class="col-8 btn btn-primary rounded-pill btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">I've Done This!
+  </button>
   </div>
 </div>
 <div class="footer-padding" style="height: 200px"></div>
-
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -82,3 +75,20 @@
     </div>
   </div>
 </div>
+
+<script>
+var coll = document.getElementsByClassName("ticket-collapse");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
+</script>
