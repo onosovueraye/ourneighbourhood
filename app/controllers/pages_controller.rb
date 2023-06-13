@@ -3,4 +3,9 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def journal
+  @reports = Report.where(status: "Done")
+  end
+
 end
