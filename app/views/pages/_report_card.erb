@@ -1,7 +1,7 @@
   <% @reports.each do |report| %>
     <div class="no-underline">
       <%= link_to report_path(report) do %>
-        <div class="card-report mb-3">
+        <div class="card-report mb-4">
           <% report.photos.each do |photo| %>
             <%= cl_image_tag photo.key, class: 'img' %>
           <% end %>

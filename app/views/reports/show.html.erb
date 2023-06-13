@@ -1,9 +1,12 @@
 <div>
   <% @report.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, class: "rs-img-size", crop: :fill,
-                                data: { bs_toggle: "modal", bs_target: "#exampleModal" } %>
+    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <%= cl_image_tag photo.key, class: "rs-img-size", crop: :fill %>
+    </a>
   <% end %>
 </div>
+
+
 <div class="container mt-3">
   <div class="rs-votes row">
     <div class="col-6 d-flex justify-content-start mb-2">
@@ -21,27 +24,6 @@
   </div>
   <h2 class="mt-2"><%= @report.title %></h2>
   <p>Description: <br><%= @report.description %></p>
-  <div>
-    <% if @report.tickets.count != 0 %>
-      <div>
-        <div class="activity-card">
-          <div class="d-flex justify-content-begin">
-            <h3>Activity</h3>
-          </div>
-          <div>
-            <p>
-              <% @report.tickets.each do |ticket| %>
-                <%= ticket.user.name %> started working on this <%= time_ago_in_words(ticket.created_at) %> ago
-              <% end %>
-            </p>
-          </div>
-        </div>
-      </div>
-    <% else %>
-      <h3>No one has claimed this report yet!</h3>
-    <% end %>
-  </div>
-
   <div>
     <div style="width: 100%; height: 200px;"
     data-controller="map"
@@ -98,14 +80,14 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><%= @report.title %></h5>
+        <h5 class="modal-title" id="exampleModalLabel">Photo</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <%= cl_image_tag @report.photos.first.key, class: "modal-img", crop: :fill %>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-outline-secondary rounded-pill" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
