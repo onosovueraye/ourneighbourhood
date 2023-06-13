@@ -37,7 +37,8 @@ class ReportsController < ApplicationController
     @markers = [
       {
         lat: @report.latitude,
-        lng: @report.longitude
+        lng: @report.longitude,
+        marker_html: render_to_string(partial: "marker", locals: {report: @report})
       }
     ]
   end
