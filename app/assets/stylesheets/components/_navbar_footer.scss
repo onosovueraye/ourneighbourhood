@@ -8,15 +8,16 @@
   height: 80px;
   width: 100%;
   padding: 8px 0 8px 0;
-  border-radius: 16px 0 0 16px;
+  border-radius: 16px 16px 0 0;
+  z-index: 10;
   a {
     text-decoration: none;
     display: flex;
   }
-}
-.btn {
-  --bs-btn-padding-x: 0;
-  --bs-btn-padding-y: 0;
+  .btn {
+    --bs-btn-padding-x: 0;
+    --bs-btn-padding-y: 0;
+  }
 }
 
 .dropup .dropdown-toggle::after {
@@ -28,16 +29,26 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  font-size: 2em;
   color: gray;
   display: flex;
   align-items: center;
   justify-content: center;
+  p {
+   font-size: 0.8em;
+  }
+  i {
+    font-size: 2em;
+  }
 }
 
 .footer-button:hover {
   color: $primary;
   transition: 0.4s;
+}
+
+.footer-button {
+  // justify-content: center;
+  text-align: center
 }
 
 .new-report-button {
@@ -48,9 +59,7 @@
   background: #ffffff;
   position: relative;
   top: -18px;
-  i {
-    font-size: 1.5em;
-  }
+
 }
 
 .avatar-navbar-footer {
