@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>Your Neighbourhood Journal</h1>
+  <%= cl_image_tag current_user.photo.key %>
+  <% @reports.each do |report| %>
+  <%= report.title %>
+  <% end %>
+
+</div>
