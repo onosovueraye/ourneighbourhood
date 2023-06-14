@@ -6,6 +6,4 @@ class UsersController < ApplicationController
     @reports = Report.where(user: current_user)
   end
 
-  
-
 end
