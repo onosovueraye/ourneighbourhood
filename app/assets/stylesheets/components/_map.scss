@@ -20,11 +20,14 @@
 }
 
 .in-progress {
-    font-size: 24px;
+    font-size: 20px;
     color: #AD7FE8;
-
+    -webkit-text-stroke-color: #232323;
+    -webkit-text-stroke-width: 1px;
 }
 .unclaimed {
-  font-size: 24px;
+  font-size: 20px;
   color: #81E491;
+  -webkit-text-stroke-color: #232323;
+  -webkit-text-stroke-width: 1px;
 }

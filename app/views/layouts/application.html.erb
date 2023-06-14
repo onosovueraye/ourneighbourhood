@@ -23,10 +23,8 @@
   <body>
     <%= render "shared/flashes" %>
     <%= yield %>
-    <%# This div is bumping down the length of the page so that the navbar does not hide any content %>
     <% if user_signed_in? %>
       <%= render "shared/navbar_footer" %>
-    <% else %>
     <% end %>
   </body>
 </html>

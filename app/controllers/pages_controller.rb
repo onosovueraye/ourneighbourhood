@@ -8,4 +8,5 @@ class PagesController < ApplicationController
   @reports = Report.where(status: "Done")
   end
 
+
 end

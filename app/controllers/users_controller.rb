@@ -5,4 +5,7 @@ class UsersController < ApplicationController
     @follows = Follow.where(user: current_user)
     @reports = Report.where(user: current_user)
   end
+
+  
+
 end
