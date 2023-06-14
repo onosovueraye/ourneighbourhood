@@ -1,16 +1,21 @@
 .card-report {
   overflow: hidden;
   border-radius: 16px;
-  background: white;
-  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  background: $our-light;
+  box-shadow: 0 0px 5px rgba(255, 255, 255, 0.15);
   display: flex;
   // align-items: center;
-  color: #2B272C;
+  color: $our-dark-text;
   object-fit: cover;
   height: 150px;
 }
-.no-underline {
 
+.card-report:hover {
+  box-shadow: 0 0px 20px rgba($color: $our-light, $alpha: 1.0);
+  transition: 0.5s;
+}
+
+.no-underline {
   a {
     text-decoration: none;
   }
