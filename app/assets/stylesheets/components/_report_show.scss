@@ -16,7 +16,8 @@
 }
 
 .rs-comment-box {
-  background-color: white;
+  background-color: $our-light;
+  color: $our-dark-text;
   padding-top: 15px;
   padding-bottom: 1px;
   padding-left: 12px;
@@ -28,13 +29,13 @@
 
 .activity-card {
   width: 100%;
-  // border: 2px solid black;
+  color: $our-dark-text;
   border-radius: 16px;
   padding-left: 16px;
   padding-right: 16px;
   padding-top: 16px;
   padding-bottom: 2px;
-  background-color: white;
+  background-color: $our-light;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   font-size: 0.8em;
 }
