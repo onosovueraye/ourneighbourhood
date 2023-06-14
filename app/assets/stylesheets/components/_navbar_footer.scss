@@ -79,8 +79,10 @@
 }
 
 .avatar-navbar-footer {
-  width: 60%;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .current i {
