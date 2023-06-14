@@ -1,7 +1,7 @@
 .navbar-footer {
   display: flex;
   justify-content: space-evenly;
-  background-color: $our-background;
+  background-color: $our-light;
   color: $our-background;
   position: fixed;
   bottom: 0;
@@ -55,11 +55,27 @@
   // position: absolute;
   height: 80px;
   width: 80px;
-  border: solid 10px $our-background;
+  border: solid 10px $our-light;
   background: $primary;
   position: relative;
   top: -18px;
   color: $our-background;
+}
+
+// .new-report-button-outline {
+//   height: 82px;
+//   width: 82px;
+//   border: solid 10px $our-text;
+//   background: $primary;
+//   position: relative;
+//   top: -18px;
+//   z-index: 11;
+// }
+
+.new-report-button:hover {
+  // position: absolute;
+
+  color: $our-text;
 }
 
 .avatar-navbar-footer {

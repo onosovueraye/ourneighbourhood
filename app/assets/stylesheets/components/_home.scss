@@ -1,6 +1,7 @@
 .homepage {
-  // background: #F5FAFF;
+  background: $our-background;
   color: $our-text;
+  margin-bottom: 80px;
   a {
     text-decoration: none;
   }
@@ -16,9 +17,12 @@
 }
 
 .home-card {
-  width: 50%;
+  width: 300px;
+  height: 30vh;
+  padding: 16px;
   background-color: $our-secondary;
   border-radius: 24px;
+  margin: 0 0 16px 0;
 }
 
 .our-logo {
