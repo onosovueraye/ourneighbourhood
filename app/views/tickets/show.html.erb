@@ -65,15 +65,15 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Congratulations!</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">Close Ticket</button>
+        <h5 class="modal-title" id="exampleModalLabel">That's Great!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      You've completed a ticket
+      Are you sure?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <%= link_to "close ticket", close_ticket_path(@ticket) %>
+        <button type="button" class="col-3 btn btn-outline-primary rounded-pill btn-lg" data-bs-dismiss="modal">No</button>
+        <%= link_to "Yes", close_ticket_path(@ticket), class: "col-3 btn btn-outline-primary rounded-pill btn-lg" %>
       </div>
     </div>
   </div>

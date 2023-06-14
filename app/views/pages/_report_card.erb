@@ -6,14 +6,18 @@
             <%= cl_image_tag photo.key, class: 'img' %>
           <% end %>
           <div class="card-report-infos">
-            <div>
-              <p id="submit-p"><strong>Submitted by: <%= report.user.name %></strong></p>
+            <div class="report-div-userinfo">
+              <p id="submit-p"><strong>By: <%= report.user.name %></strong></p>
+              <%= cl_image_tag report.user.photo.key, class: "avatar-report-card" %>
+              <%# raise %>
             </div>
-            <h2><%= report.title %></h2>
-            <p><%= report.description %></p>
-            <div class="d-flex col-auto">
-              <p class="justify-content-begin col"><strong><%= report.status %></strong></p>
-              <p class="justify-content-end col"><strong>Followers: <%= report.follows.count %></strong></p>
+            <div class="report-card-content">
+              <h2><%= report.title %></h2>
+              <p><%= report.description %></p>
+              <div class="d-flex col-auto">
+                <p class="justify-content-end col"><i class="fa-regular fa-bookmark primary"></i> <strong>Followers: <%= report.follows.count %></strong></p>
+                <p class="justify-content-begin col"><strong><%= report.status %></strong></p>
+              </div>
             </div>
           </div>
         </div>
