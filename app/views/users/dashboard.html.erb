@@ -95,7 +95,7 @@
     <div class="mt-3"></div>
     <% current_user.follows.each do |follow| %>
       <div class="no-underline">
-        <%= link_to ticket_path(follow) do %>
+        <%= link_to report_path(follow.report) do %>
           <div class="dash-report mb-3">
             <% follow.report.photos.each do |photo| %>
               <%= cl_image_tag photo.key, class: 'img' %>
