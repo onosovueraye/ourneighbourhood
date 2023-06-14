@@ -1,14 +1,14 @@
 <div class="container">
-  <h1 class="my-5" >Your Neighbourhood Journal</h1>
-    <div class="col-auto text-center my-5">
-      <%= cl_image_tag current_user.photo.key, class: "avatar-large", alt: "avatar image" %>
-    </div>
-    <div class="text-center" >
-      <p class="fa-solid">🎉</p>
-    </div>
-  <h2 class="text-center mb-5">Congratulations! <%= current_user.name %></h2>
-  <h3 class="text-center my-5"> You just completed </h3>
-
+  <h1 class="mt-5 mb-3 text-center extra-nice-text">Congratulations!</h1>
+  <h2 class="text-center"><%= current_user.name %></h2>
+  <div class="col-auto text-center my-5">
+    <%= cl_image_tag current_user.photo.key, class: "avatar-winner", alt: "avatar image" %>
+  </div>
+  <div class="text-center" >
+    <p class="celebrate-emoji">🎉</p>
+  </div>
+  <h2 class="text-center mb-5 ">Great job</h2>
+  <h3 class="text-center my-5">Thank you for improving your neighbourhood by completing:</h3>
   <% @reports.each do |report| %>
     <div class="cards mt-3 mx-4">
     <%= link_to report_path(report) do %>
@@ -19,9 +19,9 @@
     </div>
   <% end %>
   <div class="col-auto text-center mt-5">
-    <h4 class="text-center my-5">Would you like to pick another report?</h4>
-    <%= link_to "Next Task", reports_path, class: "btn btn-primary rounded-pill btn-lg text-center" %>
+    <h4 class="text-center my-5">Keep it up! Let's pick another report!</h4>
+    <%= link_to "See tasks", reports_path, class: "btn btn-primary rounded-pill btn-lg text-center" %>
   </div>
-  <div style="height: 95px">
+  <div style="height: 140px">
   </div>
 </div>
