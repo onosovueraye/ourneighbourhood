@@ -43,7 +43,7 @@
 }
 
 .card-report .card-report-infos {
-  padding: 16px;
+  padding: 10px;
 
 }
 
@@ -58,4 +58,30 @@
 .card-report .d-flex {
   justify-content: flex-end;
    /* Align the button to the right side */
+}
+.avatar-report-card {
+  // border-radius: 50%;
+  // height: 20px;
+  // max-width: 20px;
+  // margin-left: 5px;
+  // object-fit: cover;
+
+}
+
+.report-div-userinfo {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin-bottom: 3px;
+  img {
+    border-radius: 50%;
+    height: 20px;
+    max-width: 20px;
+    margin-left: 5px;
+    object-fit: cover;
+  }
+}
+
+.report-card-content {
+  justify-content: space-between;
 }
