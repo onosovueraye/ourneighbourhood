@@ -1,22 +1,45 @@
-<div>
-  <div>
-    <div class="justify-content-center">
-      <div>
-        <% if user_signed_in? %>
-          <%= link_to "#{current_user.name}", reports_path , class: "btn btn-md mt-3 ms-3 mb-3 rounded-pill", style: "color: black; border-color: black;" %>
-        <% else  %>
-          <%= link_to "Login", new_user_session_path , class: "btn btn-md mt-3 ms-3 mb-3 rounded-pill", style: "color: black; border-color: black;" %>
-        <% end %>
-      </div>
-        <div class="d-flex flex-column align-items-center text-justify">
-        <h1 class="mt-2">Your neighbourhood is</h1>
-        <%= link_to(image_tag( "neighbourhood_logo.png", class: "mb-5 mt-5", width: "200px" ),  reports_path ) %>
-      <h2 class= "text-center text-dark mb-5">Together we can make it <br>even better!</h2>
-      <h2 class= "text-center text-dark mb-5">Together we can find, fix <br>and improve upon what <br>we already love</h2>
-        <%= link_to "make a report", new_report_path , class: "btn btn-lg btn-primary rounded-pill mb-5" %>
-      <h3 class="text-center text-dark my-5">See something <br>that needs <br>fixing</h3>
-       <h3 class="text-center text-dark mb-5">Work <br>Together</h3>
-       <h3 class="text-center text-dark mb-5">Get <br>your area <br>on a New Path</h3>
+<div class="homepage">
+  <div class="container">
+
+    <div class="d-flex justify-content-end">
+      <% if user_signed_in? %>
+        <%= link_to "#{current_user.name}", reports_path , class: "" %>
+      <% else  %>
+        <%= link_to "Login", new_user_session_path , class: "btn btn-outline-primary btn-sm mt-3 ms-3 mb-3 rounded-pill" %>
+      <% end %>
     </div>
+
+    <div>
+      <div class="d-flex justify-content-center">
+
+        <div class="d-flex flex-column align-items-center text-justify">
+
+          <div class="content">
+            <div class="content__container">
+              <h1 class="our-logo mb-3 mt-3">OurNeighbourhood</h1>
+            </div>
+          </div>
+          <div class="illustration">
+            <%= image_tag("neighbourhood.svg", alt: "people making something great together") %>
+          </div>
+
+          <h2 class="text-center my-5 intro-sentance">Let's make it <br>even better!</h2>
+
+          <%= link_to "Improve our neighbourhood", new_report_path , class: "btn btn-lg btn-primary rounded-pill mb-5" %>
+
+          <div class="home-card rounded-4">
+            <h3 class="text-center my-5">See something <br>that needs <br>fixing?</h3>
+          </div>
+          <div class="home-card rounded-4">
+            <h3 class="text-center mb-5">Work <br>Together to improve averything</h3>
+          </div>
+          <div class="home-card rounded-4">
+            <h3 class="text-center mb-5">Share ideas for your area</h3>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </div>

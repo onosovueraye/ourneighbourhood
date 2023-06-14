@@ -1,11 +1,32 @@
-.home-background-image {
-  background-image: linear-gradient(to bottom, rgba(255, 252, 252, 0), rgb(255, 255, 255)), url("background.png");
-  background-size: cover;
-  height: 100vh;
+.homepage {
+  // background: #F5FAFF;
+  color: $our-text;
+  a {
+    text-decoration: none;
+  }
+  h2 {
+    font-size: 40px;
+  }
+}
 
+.illustration {
+  img {
+    width: 100%;
+  }
+}
+
+.home-card {
+  width: 50%;
+  background-color: $our-secondary;
+  border-radius: 24px;
+}
+
+.our-logo {
+  font-family: Pacifico;
+  color: $primary;
+  font-size: 2.5em;
 }
 
 .login-top {
-
-box-shadow: 0px 10px 10px -15px #111;
+box-shadow: 0px 10px 10px -15px #000;
 }

@@ -1,8 +1,8 @@
 .navbar-footer {
   display: flex;
   justify-content: space-evenly;
-  background-color: #ffffff;
-  color: #ffffff;
+  background-color: $our-background;
+  color: $our-background;
   position: fixed;
   bottom: 0;
   height: 80px;
@@ -55,11 +55,11 @@
   // position: absolute;
   height: 80px;
   width: 80px;
-  border: solid 2px $light-gray;
-  background: #ffffff;
+  border: solid 10px $our-background;
+  background: $primary;
   position: relative;
   top: -18px;
-
+  color: $our-background;
 }
 
 .avatar-navbar-footer {
