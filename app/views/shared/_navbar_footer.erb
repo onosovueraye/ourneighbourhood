@@ -6,7 +6,7 @@
       <% end %>
 
       <% if user_signed_in? %>
-        <%= link_to "/tickets/#{current_user.ticket_ids.last} ", :class => current_page?("/dashboard") ? 'current' : '' do %>
+        <%= link_to "/tickets/#{current_user.ticket_ids.last}", :class => current_page?("/tickets/#{current_user.ticket_ids.last}") ? 'current' : '' do %>
           <div class="footer-button">
             <i class="fa-regular fa-circle-check"></i>
             <%# raise %>
