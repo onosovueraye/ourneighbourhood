@@ -35,3 +35,8 @@
   margin-right: 8px;
   margin-bottom: 8px;
 }
+
+input::file-selector-button {
+  font-weight: bold;
+  color: $our-primary !important;
+}
