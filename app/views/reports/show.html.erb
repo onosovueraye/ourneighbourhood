@@ -48,6 +48,42 @@
   </div>
   <br>
   <div>
+    <% if @report.tickets.present? %>
+      <h4>Progress updates</h4>
+      <% @report.tickets.each do |ticket| %>
+        <% if ticket.notes.present? %>
+          <div class="no-underline">
+            <div class="card-report mb-3">
+              <% ticket.notes.each do |note| %>
+                <% if note.photos.present? %>
+                  <div class="ticket-img">
+                    <% note.photos.each do |photo| %>
+                      <%= cl_image_tag photo.key, class: 'img' %>
+                    <% end %>
+                  </div>
+                <% end %>
+                <div class="card-report-infos flex-grow">
+                  <div>
+                    <p id="submit-p"><strong>Posted <%= time_ago_in_words(note.created_at) %> ago by <%= note.ticket.user.name %></strong></p>
+                  </div>
+                  <p><%= note.description %></p>
+                  <div id="delete-note-btn" class="d-flex justify-content-end align-items-end">
+                    <%= link_to note_path(note), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+                      <i class="fa-solid fa-trash align-self-end btn mt-3 btn btn-outline-secondary rounded-pill btn-sm px-3" style="color: #0E0000"></i>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+      <br>
+    <% end %>
+  </div>
+
+  <br>
+  <div>
     <div style="width: 100%; height: 200px;" class="mb-3" id="map-container"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
