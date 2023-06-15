@@ -5,7 +5,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 55px 15px 0 15px;
+  padding: 0 15px 0 15px;
 }
 
 .wrap-contact100 {
@@ -38,5 +38,6 @@
 
 input::file-selector-button {
   font-weight: bold;
+  background: $our-light;
   color: $our-primary !important;
 }
