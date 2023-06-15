@@ -12,9 +12,17 @@
 
 .mapboxgl-popup-content {
   text-align: center;
-  font-family: "Open Sans", sans-serif;
+  font-family: $body-font !important;
   color: $our-dark-text;
-  border-radius: 16px;
+  border-radius: 16px !important;
+  background-color: $our-light !important;
+  padding-bottom: 0px !important;
+}
+
+.mapboxgl-popup-close-button {
+  font-size: 20px;
+  margin-right: 5px;
+  margin-top: 5px;
 }
 
 #popup-header {
