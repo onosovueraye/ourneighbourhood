@@ -75,7 +75,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_235549) do
     t.string "location"
     t.string "category"
     t.string "votes"
-    t.string "status"
+    t.string "status", default: "Unclaimed"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
