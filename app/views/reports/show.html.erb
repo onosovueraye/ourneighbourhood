@@ -19,7 +19,8 @@
       <% end %>
     </div>
     <div class="col-6">
-      <p class="rs-text-right"><%= @report.follows.count %> Followers</p>
+      <p class="rs-text-right"><%= pluralize(@report.follows.count, "follower") %></p>
+
     </div>
   </div>
   <h2 class="mt-2"><%= @report.title %></h2>
@@ -51,7 +52,6 @@
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-    <p><strong>Location: </strong><%= @report.location %></p>
     <p><strong>Report Type: </strong><%= @report.category %></p>
     <div class="row">
       <div class="col-6">
