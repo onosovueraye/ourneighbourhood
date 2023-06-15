@@ -50,7 +50,6 @@ class ReportsController < ApplicationController
   def create
     @report = Report.new(report_params)
     @report.user = current_user
-    # raise
     if @report.save
       redirect_to report_path(@report)
     else

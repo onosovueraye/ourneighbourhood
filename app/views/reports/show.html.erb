@@ -55,7 +55,7 @@
     <p><strong>Report Type: </strong><%= @report.category %></p>
     <div class="row">
       <div class="col-6">
-        <p><strong>Status: </strong><%= @report.status %></p>
+      <p><strong>Status: </strong><%= @report.status %></p>
       </div>
       <div class="col-6 d-flex justify-content-end">
         <% if !@report.tickets.map(&:user).include?(current_user) %>
