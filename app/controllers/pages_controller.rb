@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   end
 
   def journal
-  @reports = Report.where(status: "Done")
+   @reports = Report.where(status: "Done")
   end
 
 

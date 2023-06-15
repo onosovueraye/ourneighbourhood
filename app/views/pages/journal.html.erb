@@ -13,7 +13,7 @@
     <div class="cards mt-3 mx-4">
     <%= link_to report_path(report) do %>
       <div class="card-category"  style="background-image: url(<%= report.photos.map { |photo| cl_image_path(photo.key) }.join(', ') %>)">
-        <%= report.title %>
+        <p><%= report.title %></p>
       </div>
       <% end %>
     </div>
