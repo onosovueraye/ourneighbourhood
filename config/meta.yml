@@ -1,0 +1,6 @@
+
+meta_product_name: "OurNeighbourhood"
+meta_title: "OurNeighbourhood - Let's Make It Even Better"
+meta_description: "It's an app to help you improve your neighbourhood"
+meta_image: "neighbourhood.png" # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards
