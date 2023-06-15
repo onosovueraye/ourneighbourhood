@@ -6,11 +6,20 @@
       <% end %>
 
       <% if user_signed_in? %>
-        <%= link_to "/tickets/#{current_user.ticket_ids.last}", :class => current_page?("/tickets/#{current_user.ticket_ids.last}") ? 'current' : '' do %>
-          <div class="footer-button">
-            <i class="fa-regular fa-circle-check"></i>
-            <%# raise %>
-          </div>
+        <% if current_user.ticket_ids.last.present? %>
+          <%= link_to "/tickets/#{current_user.ticket_ids.last}", :class => current_page?("/tickets/#{current_user.ticket_ids.last}") ? 'current' : '' do %>
+            <div class="footer-button">
+              <i class="fa-regular fa-circle-check"></i>
+              <%# raise %>
+            </div>
+          <% end %>
+          <% else %>
+          <%= link_to "/reports" do %>
+            <div class="footer-button">
+                <i class="fa-regular fa-circle-check"></i>
+                <%# raise %>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
       <%# <div class="new-report-button-outline"></div> %>
