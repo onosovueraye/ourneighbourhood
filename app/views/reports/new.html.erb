@@ -11,7 +11,7 @@
           <%= f.hidden_field :latitude, data: { geolocation_target: "latitude" } %>
           <%= f.hidden_field :longitude, data: { geolocation_target: "longitude" } %>
           <%= f.input :category, collection: ["Improvement", "Repair"], default:["Improvement"] %>
-          <%= f.submit "Share your idea!", class: 'btn btn-primary rounded-pill btn-lg col-12 mt-5' %>
+          <%= f.submit "Submit Report", class: 'btn btn-primary rounded-pill btn-lg col-12 mt-5' %>
         <% end %>
       </div>
     </div>
