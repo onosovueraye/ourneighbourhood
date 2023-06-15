@@ -1,3 +1,21 @@
+// app/assets/config/manifest.json.erb
+{
+  "background_color": "white",
+  "description": "OurNeighbourhood is a community app where residents come together to create the best neighbourhood ever!",
+  "display": "fullscreen",
+  "name": "OurNeighbourhood",
+  "icons": [
+    <% files = Dir.entries(Rails.root.join("app/assets/images/icons/")).select {|f| !File.directory? f} %>
+    <% files.each_with_index do |file, index| %>
+      <% match = file.match(/.+-(?<size>\d{2,3}x\d{2,3}).png/) %>
+      {
+        "src": "<%= image_path "icons/#{file}" %>",
+        "sizes": "<%= match && match[:size] %>",
+        "type": "image/png"
+      }<%= "," unless (files.size - 1) == index %>
+    <% end %>
+  ]
+}
 {
  "name": "App",
  "icons": [
