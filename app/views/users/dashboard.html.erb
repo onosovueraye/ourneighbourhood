@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div class="dash-info mb-4">
+  <div class="dash-info my-3">
     <div class="d-flex">
       <%= cl_image_tag current_user.photo.key, class: "avatar-dashboard", alt: "avatar image" %>
       <% if current_user.tickets.where(status: "Done").present? %>
