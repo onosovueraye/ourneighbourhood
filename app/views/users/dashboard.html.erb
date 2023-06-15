@@ -4,13 +4,13 @@
     <div class="d-flex">
       <%= cl_image_tag current_user.photo.key, class: "avatar-dashboard", alt: "avatar image" %>
       <% if current_user.tickets.where(status: "Done").present? %>
-        <p class="ms-3"><strong>Neighbourhood champion!</strong><br>They have Completed <%= current_user.tickets.where(status: "Done").count %> tickets</p>
+        <p class="ms-3"><strong>Neighbourhood champion!</strong><br>They have completed <strong><%= current_user.tickets.where(status: "Done").count %> tickets</strong></p>
       <% end %>
     </div>
     <div class="col" id="dash-details">
-      <h1><%= current_user.name %> <%= current_user.tickets.where(status: "Done").present? ? "⭐" : "🌱" %></h1>
+      <h1><%= current_user.name %></h1>
       <div class="d-flex align-items-center">
-        <h2 class=""><i class="fa-sharp fa-solid fa-location-arrow" style="color: #6b6b6b;"></i>  <%= current_user.neighbourhood %></h2>
+        <h2 class=""><i class="fa-sharp fa-solid fa-location-arrow" style=""></i>  <%= current_user.neighbourhood %></h2>
       </div>
     </div>
   </div>
@@ -68,7 +68,7 @@
     </div>
   </div>
 
-  <button type="button" class="dash-collapse">Followed Reports:</button>
+  <button type="button" class="dash-collapse">Followed Reports</button>
 
   <div class="dash-content">
     <div class="mt-3"></div>
@@ -89,7 +89,7 @@
     <%end%>
   </div>
 
-<button type="button" class="dash-collapse">My Completed Tickets:</button>
+<button type="button" class="dash-collapse">My Completed Tickets</button>
   <div class="dash-content">
     <div class="mt-3"></div>
     <% current_user.tickets.where(status: "Done").each do |ticket| %>
