@@ -2,33 +2,37 @@
   max-width: 300px;
 }
 
+.fa-solid {
+  font-size: 30px;
+}
+
+.mapboxgl-canvas {
+  border-radius: 16px 16px 0 0;
+}
+
 .mapboxgl-popup-content {
   text-align: center;
   font-family: "Open Sans", sans-serif;
   color: $our-dark-text;
+  border-radius: 16px;
 }
 
 #popup-header {
-
   font-size: medium;
   text-align: left;
-
 }
 
 #popup-text {
-
   text-align: left;
 }
 
 .in-progress {
-    font-size: 20px;
-    color: #AD7FE8;
-    -webkit-text-stroke-color: #232323;
-    -webkit-text-stroke-width: 1px;
+  color: $red;
+  -webkit-text-stroke-color: $our-dark-text;
+  -webkit-text-stroke-width: 1px;
 }
 .unclaimed {
-  font-size: 20px;
-  color: #81E491;
-  -webkit-text-stroke-color: #232323;
+  color: $primary;
+  -webkit-text-stroke-color: $our-dark-text;
   -webkit-text-stroke-width: 1px;
 }
