@@ -91,7 +91,7 @@ report7 = Report.new(title: 'Poor Lighting', description: 'Street has poor light
 report7.photos.attach(io: photo_report7, filename: 'poor_lighting_oak_st.jpg', content_type: 'image/jpg')
 report7.save!
 
-photo_report8 = URI.open('https://www.royalparks.org.uk/parks/the-regents-park/things-to-see-and-do/primrose-hill/_gallery/Park-bench-on-Primrose-Hill.jpg/w_768.jpg')
+photo_report8 = URI.open('https://picsandstuff.files.wordpress.com/2012/09/giant-park-bench-broken-hill-2012.jpg')
 report8 = Report.new(title: 'Community garden in Park', description: 'Empty bit in the park would be perfect for a little community garden.', location: '178 Stanway St, London N1 5LH', category: 'Improvement', votes: '44', status: 'Unclaimed', user_id: user3.id)
 report8.photos.attach(io: photo_report8, filename: 'overgrown_bushes_park.jpg', content_type: 'image/jpg')
 report8.save!
