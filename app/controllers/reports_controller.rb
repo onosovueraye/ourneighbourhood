@@ -1,10 +1,7 @@
 class ReportsController < ApplicationController
-
   def index
-
     # @reports = Report.order(:location, )
-    #@reports = Report.all
-
+    # @reports = Report.all
 
     user_coordinates = Geocoder.coordinates(current_user.address)
 
@@ -21,12 +18,10 @@ class ReportsController < ApplicationController
       {
         lat: report.latitude,
         lng: report.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {report: report}),
-        marker_html: render_to_string(partial: "marker", locals: {report: report})
+        info_window_html: render_to_string(partial: "info_window", locals: { report: }),
+        marker_html: render_to_string(partial: "marker", locals: { report: })
       }
     end
-
-
   end
 
   def show
@@ -38,7 +33,7 @@ class ReportsController < ApplicationController
       {
         lat: @report.latitude,
         lng: @report.longitude,
-        marker_html: render_to_string(partial: "marker", locals: {report: @report})
+        marker_html: render_to_string(partial: "marker", locals: { report: @report })
       }
     ]
   end
@@ -75,6 +70,7 @@ class ReportsController < ApplicationController
   end
 
   def report_params
-    params.require(:report).permit(:title, :description, :location, :latitude, :longitude, :category, :status, :votes, photos: [])
+    params.require(:report).permit(:title, :description, :location, :latitude, :longitude, :category, :status, :votes,
+                                   photos: [])
   end
 end
