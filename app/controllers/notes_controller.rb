@@ -1,5 +1,4 @@
 class NotesController < ApplicationController
-
   def new
     @note = Note.new
     @ticket = Ticket.find(params[:ticket_id])

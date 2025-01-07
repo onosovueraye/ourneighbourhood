@@ -1,5 +1,4 @@
 class TicketsController < ApplicationController
-
   def show
     @ticket = Ticket.find(params[:id])
     @note = Note.new
@@ -13,9 +12,9 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find(params[:ticket_id])
     @ticket.update(status: "Done")
     @ticket.report.update(status: "Done")
-    if  @ticket.save!
-      redirect_to journal_path(@ticket)
-    end
+    return unless @ticket.save!
+
+    redirect_to journal_path(@ticket)
   end
 
   def create
