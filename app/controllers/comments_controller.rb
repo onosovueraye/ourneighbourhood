@@ -3,7 +3,6 @@ class CommentsController < ApplicationController
   def new
     @comment = Comment.new
     @report = Report.find(params[:report_id])
-
   end
 
   def create
@@ -19,7 +18,7 @@ class CommentsController < ApplicationController
     end
   end
 
-private
+  private
 
   def comment_params
     params.require(:comment).permit(:description)
@@ -28,5 +27,4 @@ private
   # def set_report
   #   @report = Report.includes(:comments).where(user: current_user).find(params[:report_id])
   # end
-
 end

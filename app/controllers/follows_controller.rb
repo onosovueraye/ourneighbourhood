@@ -1,7 +1,6 @@
 class FollowsController < ApplicationController
-
   def create
-    @follow = Follow.new()
+    @follow = Follow.new
     @follow.user = current_user
     @follow.report = Report.find(params[:report_id])
     if @follow.save
@@ -16,5 +15,4 @@ class FollowsController < ApplicationController
     @follow.destroy
     redirect_to report_path(@follow.report)
   end
-
 end
